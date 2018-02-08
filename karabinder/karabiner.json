@@ -387,7 +387,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "o",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command", "left_control"
@@ -404,7 +404,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "y",
+                                    "key_code": "u",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command", "left_control"

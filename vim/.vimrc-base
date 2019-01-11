@@ -1,0 +1,92 @@
+set exrc                        "allow per project .vimrc
+set secure                      "prevent using of autocmd
+
+" common setup
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=500                 "Store lots of :cmdline history set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+set nowrap                      "lets not do wordwrap okay?
+set hidden                      "I don't fully understand this setting yet
+                                "see here:
+                                "https://medium.com/usevim/vim-101-set-hidden-f78800142855a
+set splitright                  ":vs opens at the right
+set scrolloff=20                "Keeps the screen almost vertically centered
+
+syntax on
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" turn off muna so we can properly load plugins muna muna ha?
+filetype off                  
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+" My current color schemes
+Plugin 'ajh17/spacegray.vim'
+
+" NERDTree for the sidebar folder view
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+
+" Web Development: flowJS
+Plugin 'flowtype/vim-flow'
+
+" Web development plugins: emmet, jsx, css color,
+Plugin 'mattn/emmet-vim'
+Plugin 'skammer/vim-css-color'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+
+" Fuzzy file search to search files in project
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
+" For string searching across files
+Plugin 'mileszs/ack.vim'
+
+" Ale for eslint fix autosave
+Plugin 'w0rp/ale',
+call vundle#end()
+
+"turn on again to enable filetype plugins
+filetype plugin indent on 
+
+colorscheme spacegray
+
+if filereadable("./.vimrc")
+    source ./.vimrc
+endif
+
+let mapleader = ";"
+nmap <leader>w :w!<cr>
+nmap <leader>qw :q<cr>
+nmap <leader>e :e<cr>
+nmap <Tab> <C-w>w
+nmap <S-Tab> <C-w>W
+map  <leader>t :NERDTreeToggle<cr>
+map  <leader>tf :NERDTreeFind<cr>
+nmap <C-p> :FZF<cr>
+vnoremap // y/<C-R>"<CR>
+nmap O O<Esc>
+nmap o o<Esc>
+
+inoremap ;a <Esc>
+nnoremap ;a <Esc>
+vnoremap ;a <Esc>
+
+" this was a useful thing in vscode: moving line/lines upp or down
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+" ∆ is ALT-j ˚ is ALT-k
+nnoremap ∆ :m .+1<CR>==     
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+

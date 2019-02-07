@@ -1,5 +1,39 @@
-set exrc                        "allow per project .vimrc
-set secure                      "prevent using of autocmd
+" We'll allow project specific .vimrc
+" and set secure to disable unsafe commands on project-specific vimrc
+set exrc
+set secure
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+
+" For autocompletion
+Plugin 'prabirshrestha/async.vim.git'
+Plugin 'prabirshrestha/vim-lsp.git'
+Plugin 'prabirshrestha/asyncomplete.vim.git'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim.git'
+Plugin 'w0rp/ale.git'
+
+" For javascript
+Plugin 'ryanolsonx/vim-lsp-javascript.git'
+Plugin 'flowtype/vim-flow'
+
+" For Vim generic plugins
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'terryma/vim-multiple-cursors.git'
+Plugin 'junegunn/fzf.vim.git'
+Plugin 'chrisbra/recover.vim.git'
+Plugin 'vim-airline/vim-airline.git'
+Plugin 'vim-airline/vim-airline-themes.git'
+Plugin 'christoomey/vim-tmux-navigator.git'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+call vundle#end()
+filetype on
+
 
 " common setup
 set number                      "Line numbers are good
@@ -14,48 +48,7 @@ set hidden                      "I don't fully understand this setting yet
                                 "https://medium.com/usevim/vim-101-set-hidden-f78800142855a
 set splitright                  ":vs opens at the right
 set scrolloff=20                "Keeps the screen almost vertically centered
-
-syntax on
-
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" turn off muna so we can properly load plugins muna muna ha?
-filetype off                  
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-" My current color schemes
-Plugin 'ajh17/spacegray.vim'
-
-" NERDTree for the sidebar folder view
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-
-" Web Development: flowJS
-Plugin 'flowtype/vim-flow'
-
-" Web development plugins: emmet, jsx, css color,
-Plugin 'mattn/emmet-vim'
-Plugin 'skammer/vim-css-color'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-
-" Fuzzy file search to search files in project
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-
-" For string searching across files
-Plugin 'mileszs/ack.vim'
-
-" Ale for eslint fix autosave
-Plugin 'w0rp/ale',
-call vundle#end()
-
-"turn on again to enable filetype plugins
-filetype plugin indent on 
+syntax on                       "allow syntax highlighting
 
 colorscheme spacegray
 
@@ -63,22 +56,37 @@ if filereadable("./.vimrc")
     source ./.vimrc
 endif
 
+if filereadable("./.vim/config/plugins.vimrc")
+   source ./.vim/config/plugins.vimrc
+endif
+
 let mapleader = ";"
 nmap <leader>w :w!<cr>
 nmap <leader>qw :q<cr>
 nmap <leader>e :e<cr>
-nmap <Tab> <C-w>w
-nmap <S-Tab> <C-w>W
 map  <leader>t :NERDTreeToggle<cr>
 map  <leader>tf :NERDTreeFind<cr>
 nmap <C-p> :FZF<cr>
-vnoremap // y/<C-R>"<CR>
-nmap O O<Esc>
-nmap o o<Esc>
+noremap O O<Esc>
+noremap o o<Esc>
 
-inoremap ;a <Esc>
-nnoremap ;a <Esc>
-vnoremap ;a <Esc>
+vnoremap <leader>a <Esc>
+inoremap <leader>a <Esc>
+nnoremap <leader>a <Esc>
+inoremap <leader>w <Esc>:w!<CR>
+
+"press // to search for visually selected text
+vnoremap // y/<C-R>"<CR>
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" for asyncomplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " this was a useful thing in vscode: moving line/lines upp or down
 " http://vim.wikia.com/wiki/Moving_lines_up_or_down

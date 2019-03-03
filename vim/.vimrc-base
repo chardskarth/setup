@@ -1,41 +1,52 @@
+" try install vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
 " We'll allow project specific .vimrc
-" and set secure to disable unsafe commands on project-specific vimrc
-set exrc
-set secure
+" and set secure to disable unsafe commands on project-specific configs
+set exrc                        
+set secure                      
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
 
 " For autocompletion
-Plugin 'prabirshrestha/async.vim.git'
-Plugin 'prabirshrestha/vim-lsp.git'
-Plugin 'prabirshrestha/asyncomplete.vim.git'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim.git'
-Plugin 'w0rp/ale.git'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'w0rp/ale'
 
 " For javascript
-Plugin 'ryanolsonx/vim-lsp-javascript.git'
-Plugin 'flowtype/vim-flow'
+Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'flowtype/vim-flow'
 
 " For Vim generic plugins
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'terryma/vim-multiple-cursors.git'
-Plugin 'junegunn/fzf.vim.git'
-Plugin 'chrisbra/recover.vim.git'
-Plugin 'vim-airline/vim-airline.git'
-Plugin 'vim-airline/vim-airline-themes.git'
-Plugin 'christoomey/vim-tmux-navigator.git'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-call vundle#end()
-filetype on
+Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/recover.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'breuckelen/vim-resize'
+
+call plug#end()
 
 
-" common setup
+" indentation settings
+" https://vim.fandom.com/wiki/Indenting_source_code?section=5
+set autoindent                  " insert mode enter matches indentation
+                                " of previous line
+set smartindent                 " syntax detecting indentation
+set tabstop=2                   " <TAB> occupies 2 spaces
+
+" render whitespaces
+:set listchars=eol:↵,tab:›\ ,space:‧
+:set list
+
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=500                 "Store lots of :cmdline history set showcmd                     "Show incomplete cmds down the bottom
@@ -51,13 +62,14 @@ set scrolloff=20                "Keeps the screen almost vertically centered
 syntax on                       "allow syntax highlighting
 
 colorscheme spacegray
+set termguicolors
 
 if filereadable("./.vimrc")
     source ./.vimrc
 endif
 
 if filereadable("./.vim/config/plugins.vimrc")
-   source ./.vim/config/plugins.vimrc
+   source ./.vim/config/plugins.vimrc 
 endif
 
 let mapleader = ";"
@@ -74,6 +86,10 @@ vnoremap <leader>a <Esc>
 inoremap <leader>a <Esc>
 nnoremap <leader>a <Esc>
 inoremap <leader>w <Esc>:w!<CR>
+vnoremap <leader>A <Esc>
+inoremap <leader>A <Esc>
+nnoremap <leader>A <Esc>
+inoremap <leader>W <Esc>:W!<CR>
 
 "press // to search for visually selected text
 vnoremap // y/<C-R>"<CR>
@@ -87,6 +103,12 @@ nnoremap <C-H> <C-W><C-H>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" For resizing windows using arrow keys
+noremap <LEFT> <C-W><
+noremap <RIGHT> <C-W>>
+noremap <DOWN> <C-W>-
+noremap <UP> <C-W>+
 
 " this was a useful thing in vscode: moving line/lines upp or down
 " http://vim.wikia.com/wiki/Moving_lines_up_or_down

@@ -2,10 +2,12 @@ let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
 
 let NERDTreeShowHidden = 1
-let NERDTreeIgnore = ['\.swp', '\.swo']
+let NERDTreeIgnore = ['\.swp', '\.swo', '\.swn', '\.swm', '\.swl', '\.DS_Store', '\.classpath', '\.project', '\.gradle', '\.idea', '\.settings', '\.vscode', 'gradlew']
 
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_insert_mode = 0
+" comment just to archive. I don't know how to make this work. ;(
+" let g:multi_cursor_exit_from_visual_mode = 0
+" let g:multi_cursor_exit_from_insert_mode = 0
+" let g:multi_cursor_quit_key = '<Esc>'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1

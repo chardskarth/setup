@@ -84,15 +84,46 @@
                                        ,-------------.         ,-------------.
                                        |LCtrl | LAlt |         | LAlt |RCtrl |
                                 ,------|------|------|         |------+------+------.
-                                |      |      |      |         |      |      |      |
-                                | ESC  | CMD  |------|         |------| Spce |ENTER |
                                 |      |      |HYPER |         | MEH  |      |      |
+                                | ESC  | CMD  |------|         |------| Spce |ENTER |
+                                |      |      |SH_TT |         |      |      |      |
                                 `--------------------'         `--------------------'
 ```
 
 ## Vim default layer
-VE (Vim Escape): `<ESC><ESC>`
+Vim Leader: `;`
+VE (Vim Escape): `<ESC><ESC>` (w/ smart capslock)
+VW (Vim Write): `:w <call VE>` 
+VQ (Vim Quit): `:q` 
+VQW (Vim Write and Quit): `<call VW>:q` 
+VQ! (Vim force quit w/o saving): `:q!`
 
+NERDTree Tap Dance
+  - NTT: `:NERDTreeToggle`
+  - NTF: `:NERDTreeFind`
+  - NT: `:NERDTree`
+
+Buffer
+	- List (:buffers)
+
+Navigation Keys
+  - Next
+	  - vim multi cursor
+		- Toggle async complete/next word in autocomplete
+	- Previous
+	  - vim multi cursor
+		- async complete
+	- Skip
+	  - vim multi cursor
+	- Next paragraph
+	- Prev paragraph
+	- Next changes edited
+	- Prev changes edited
+
+### Should I put something else for these?
+Folding 
+CS (vim surround)
+ctags
 ```
 ,--------------------------------------------------.           ,--------------------------------------------------.
 |  ____, | ____,| ____,| ____,| ____,|      |      |           |      |      | ____,| ____,| ____,| ____,|TO(DFLT)|
@@ -100,7 +131,7 @@ VE (Vim Escape): `<ESC><ESC>`
 |        | ____,| ____,| ____,| ____,| ____,|      |           |      | ____,| ____,| ____,| ____,| ____,|        |
 |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
 |        | ____,| ____,| ____,| ____,| ____,|------|           |------| ____,| ____,| ____,| ____,| ____,| ____,  |
-|--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+|--------+------+------+------+------+------|TT(MS |           |      |------+------+------+------+------+--------|
 |        | ____,| ____,| ____,| ____,| ____,|      |           |      | ____,| ____,| ____,| ____,| ____,|        |
 `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
   |      |      |      |      |      |                                       |      |      |      |      |      |
@@ -114,10 +145,25 @@ VE (Vim Escape): `<ESC><ESC>`
                                 `--------------------'         `--------------------'
 ```
 
+## vim/tmux layer
+- tmux view windows
+- tmux selection mode
+- tmux save state
+- tmux reload state
+- tmux go to next pane
+- tmux go to prev pane
+- vim rotate panes right/left
+- tmux rotate panes right/left
+- vim equal pane size
+- vim/tmux arrow like pane focus switching	
+- type `:to sb` for vim
+- type `:bo sb` for vim
+- type `:rightb sb` for vim
+- type `:lefta sb` for vim
+
 ## Software Development Macro Layer
 ## Window Positioning/Navigation Layer (MacOS)
 ## Window Positioning/Navigation Layer (Windows)
-## Window Positioning/Navigation Layer (vim/tmux)
 ## DotA Layer
 
 ### TODO in all layers

@@ -21,20 +21,27 @@ Plug 'w0rp/ale'
 Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'flowtype/vim-flow'
 
+" For java, kotlin, gradle
+Plug 'tfnico/vim-gradle'
+Plug 'udalov/kotlin-vim'
+
 " For Vim generic plugins
 Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/recover.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'breuckelen/vim-resize'
+Plug 'uguu-org/vim-matrix-screensaver', { 'on': ['Matrix'] }
+" Plug 'majutsushi/tagbar'
+Plug 'lvht/tagbar-markdown'
 
 call plug#end()
-
 
 " indentation settings
 " https://vim.fandom.com/wiki/Indenting_source_code?section=5
@@ -58,6 +65,7 @@ set hidden                      "I don't fully understand this setting yet
                                 "see here:
                                 "https://medium.com/usevim/vim-101-set-hidden-f78800142855a
 set splitright                  ":vs opens at the right
+set splitbelow                  ":split opens below
 set scrolloff=20                "Keeps the screen almost vertically centered
 syntax on                       "allow syntax highlighting
 
@@ -76,11 +84,15 @@ let mapleader = ";"
 nmap <leader>w :w!<cr>
 nmap <leader>qw :q<cr>
 nmap <leader>e :e<cr>
-map  <leader>t :NERDTreeToggle<cr>
-map  <leader>tf :NERDTreeFind<cr>
-nmap <C-p> :FZF<cr>
 noremap O O<Esc>
 noremap o o<Esc>
+
+map  <leader>t :NERDTreeToggle<cr>
+map  <leader>tf :NERDTreeFind<cr>
+
+map <leader>r :TagbarToggle<cr>
+
+nmap <C-p> :FZF<cr>
 
 vnoremap <leader>a <Esc>
 inoremap <leader>a <Esc>
@@ -103,7 +115,7 @@ nnoremap <C-H> <C-W><C-H>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
+"
 " For resizing windows using arrow keys
 noremap <LEFT> <C-W><
 noremap <RIGHT> <C-W>>

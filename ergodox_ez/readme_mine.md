@@ -1,5 +1,4 @@
 ## Default Layer [red]
-
 ```
 ,--------------------------------------------------.           ,--------------------------------------------------.
 | =      | 1    | 2    | 3    | 4    | 5    | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
@@ -95,28 +94,29 @@ SHTAB: TAB / SH_TT
 ```
 
 ## Vim default layer
-Vim Leader: `;`
+
+### Vim Leader: `;`
 VE (Vim Escape): `<ESC><ESC>` (w/ smart capslock)
 VQ (Vim Quit): `<call VE> :q` 
 
-Vim Write Quit Tap Dance
+### Vim Write Quit Tap Dance
 VW (Vim Write): `:w <call VE>` 
 VQW (Vim Write and Quit): `<call VW>:q` 
 VQ! (Vim force quit w/o saving): `:q!`
 
-NERDTree Tap Dance
+### NERDTree Tap Dance
   - NTT: `:NERDTreeToggle`
   - NTF: `:NERDTreeFind`
   - NT: `:NERDTree`
 
-Buffer
+### Buffer
 	- List (:buffers)
 
-Split Pane Tap Dance
+### Split Pane Tap Dance
 - split (hold to just type command)
 - vsplit (hold to just type command)
 
-Navigation Keys
+### Navigation Keys
   - Next (C-N)
     - vim multi cursor
     - Toggle async complete/next word in autocomplete
@@ -128,17 +128,17 @@ Navigation Keys
   - Next paragraph
   - Prev paragraph
 
-Vim Changes Tap Dance
+### Vim Changes Tap Dance
 	- Prev changes edited (g;)
 	- Next changes edited (g,)
 
-FZF Tap Dance
+### FZF Tap Dance
 - FZF Open
 - FZF Tab split (C-T)
 - FZF split (C-X)
 - FZF V split (C-V)
 
-Folding
+### Folding
 - zc (close fold on cursor level; closes nested folds too)
 - zo (open fold on cursor level; does not open nested folds)
 - za (toggle fold on cursor level)
@@ -150,7 +150,7 @@ Folding
 - zO (open fold on buffer level)
 - zA (toggle fold on buffer level)
 
-Yanking
+### Yanking
 - paste w/o replacing yank
 - copy to system clipboard
 - yanking path from NERDTree

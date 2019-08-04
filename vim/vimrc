@@ -3,11 +3,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-" We'll allow project specific .vimrc
-" and set secure to disable unsafe commands on project-specific configs
-set exrc                        
-set secure                      
-
 call plug#begin('~/.vim/plugged')
 
 " For autocompletion
@@ -38,6 +33,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'breuckelen/vim-resize'
 Plug 'uguu-org/vim-matrix-screensaver', { 'on': ['Matrix'] }
+Plug 'embear/vim-localvimrc'
 " Plug 'majutsushi/tagbar'
 Plug 'lvht/tagbar-markdown'
 
@@ -66,15 +62,11 @@ set hidden                      "I don't fully understand this setting yet
                                 "https://medium.com/usevim/vim-101-set-hidden-f78800142855a
 set splitright                  ":vs opens at the right
 set splitbelow                  ":split opens below
-set scrolloff=20                "Keeps the screen almost vertically centered
+"set scrolloff=20                "Keeps the screen almost vertically centered
 syntax on                       "allow syntax highlighting
 
 colorscheme spacegray
 set termguicolors
-
-if filereadable("./.vimrc")
-    source ./.vimrc
-endif
 
 if filereadable("./.vim/config/plugins.vimrc")
    source ./.vim/config/plugins.vimrc 
@@ -86,6 +78,7 @@ nmap <leader>qw :q<cr>
 nmap <leader>e :e<cr>
 noremap O O<Esc>
 noremap o o<Esc>
+noremap <Space> ;
 
 map  <leader>t :NERDTreeToggle<cr>
 map  <leader>tf :NERDTreeFind<cr>

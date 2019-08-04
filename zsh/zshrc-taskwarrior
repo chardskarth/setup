@@ -1,0 +1,17 @@
+alias tann='task annotate'
+alias t='task'
+
+alias tn='task next +READY'
+alias tnh='task next +READY -worknsaction-email-verification.txt'
+alias tp='task projects'
+alias tact='task active'
+
+alias tw='task +work'
+alias twa='task +work proj:autobahn add'
+# alias ts='task +work proj:prod_support'
+alias tsa='task +work proj:prod_support add'
+
+alias tri='task +personal_projects pro:rimind'
+alias tria='task +personal_projects pro:rimind add'
+alias tek='task +personal_projects +productivity pro:ergodox_keyboard'
+alias teka='task +personal_projects +productivity pro:ergodox_keyboard add'

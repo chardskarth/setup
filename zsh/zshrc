@@ -109,12 +109,32 @@ function cgc {
   git add -A
   git commit -m "$1 $2"
 }
+alias change="changelog.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg='lazygit'
-alias mci='mvn clean install'
+
+source ~/.zshrc-autobahn
+source ~/.zshrc-todo
+
 alias szsh='source ~/.zshrc'
-alias vzsh='vim ~/.zshrc'
+
+function vzsh {
+	vim ~/.zshrc 
+	source ~/.zshrc
+}
+function vvrc {
+	vim ~/.vimrc 
+	source ~/.zshrc
+}
+function vzshab {
+	vim ~/.zshrc-autobahn 
+	source ~/.zshrc
+}
+function vzshtdo {
+	vim ~/.zshrc-todo 
+	source ~/.zshrc
+}
 
 # Enable Vim mode in ZSH
 bindkey -v
@@ -127,5 +147,6 @@ bindkey '^S' history-incremental-search-forward  # Perform forward search in com
 bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
-# setup taskwarrior
-source ~/.zshrc-taskwarrior
+# for go programming language
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH

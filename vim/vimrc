@@ -45,12 +45,14 @@ set autoindent                  " insert mode enter matches indentation
                                 " of previous line
 set smartindent                 " syntax detecting indentation
 set tabstop=2                   " <TAB> occupies 2 spaces
+set shiftwidth=2
 
 " render whitespaces
 :set listchars=eol:↵,tab:›\ ,space:‧
 :set list
 
 set number                      "Line numbers are good
+set rnu                         "enable relative line numbers
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=500                 "Store lots of :cmdline history set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
@@ -64,6 +66,7 @@ set splitright                  ":vs opens at the right
 set splitbelow                  ":split opens below
 "set scrolloff=20                "Keeps the screen almost vertically centered
 syntax on                       "allow syntax highlighting
+set foldmethod=syntax
 
 colorscheme spacegray
 set termguicolors
@@ -72,29 +75,22 @@ if filereadable("./.vim/config/plugins.vimrc")
    source ./.vim/config/plugins.vimrc 
 endif
 
-let mapleader = ";"
-nmap <leader>w :w!<cr>
-nmap <leader>qw :q<cr>
-nmap <leader>e :e<cr>
+let mapleader = " "
+inoremap <leader>; <Esc>
+nmap <leader><leader>w :w<cr>
+nmap <leader><leader>;q :q<cr>
+nmap <leader><leader>e :e<cr>
 noremap O O<Esc>
 noremap o o<Esc>
 noremap <Space> ;
+
 
 map  <leader>t :NERDTreeToggle<cr>
 map  <leader>tf :NERDTreeFind<cr>
 
 map <leader>r :TagbarToggle<cr>
 
-nmap <C-p> :FZF<cr>
-
-vnoremap <leader>a <Esc>
-inoremap <leader>a <Esc>
-nnoremap <leader>a <Esc>
-inoremap <leader>w <Esc>:w!<CR>
-vnoremap <leader>A <Esc>
-inoremap <leader>A <Esc>
-nnoremap <leader>A <Esc>
-inoremap <leader>W <Esc>:W!<CR>
+nmap π :FZF<cr>
 
 "press // to search for visually selected text
 vnoremap // y/<C-R>"<CR>
@@ -124,4 +120,14 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
+noremap ‘ :tabnext<CR>
+noremap “ :tabprev<CR>
 
+" FOLDING
+set foldmethod=indent "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+" let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99 "start file with all folds opened
+
+nnoremap H zc
+nnoremap L zo

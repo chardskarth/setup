@@ -125,8 +125,6 @@ export EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-
 _fix_cursor() {
 	echo -ne '\e[5 q'
 }

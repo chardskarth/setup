@@ -11,6 +11,4 @@ alias gwbr='./gradlew clean build bootRun'
 alias br='./buildRun.sh'
 alias r='./run.sh'
 
-alias proxyOff='~/sources/ubp/autobahn-project/server-scripts/turnOffWebProxy.sh'
-alias proxyOn='~/sources/ubp/autobahn-project/server-scripts/turnOnWebProxy.sh'
-
+alias gafzf='git ls-files -m -o --exclude-standard | fzf -m | xargs git add'

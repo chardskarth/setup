@@ -1,33 +1,47 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/richardglen/.oh-my-zsh
+export ZSH="/home/pi/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="amuse"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -48,27 +62,42 @@ ZSH_THEME="amuse"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  tmux
-  zsh-syntax-highlighting
-  emoji
-)
 
-# fix: https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
-ZSH_DISABLE_COMPFIX=true
+# Enable Vim mode in ZSH. Source: https://gist.github.com/thisivan/823138
+# bindkey -v
+# 
+# autoload -U edit-command-line
+# zle -N edit-command-line
+# bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
+# bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
+# bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
+# bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
+# bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
+plugins=(git zsh-nvm zsh-syntax-highlighting zsh-vim-mode tmux emoji)
+ 
 source $ZSH/oh-my-zsh.sh
+
+path=('/home/pi/.local/bin' $path)
+
+EDITOR=vim
+
+export path
+export EDITOR
 
 # User configuration
 
@@ -87,9 +116,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -99,54 +125,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
-# Include change-sh from whitecloak -Richard
-export CHANGE=~/apps/changelog-sh
-export PATH=$PATH:~/apps/changelog-sh
-function cgc {
-  changelog.sh new $1 $2
-  git add -A
-  git commit -m "$1 $2"
+
+_fix_cursor() {
+	echo -ne '\e[5 q'
 }
-alias change="changelog.sh"
+precmd_functions+=(_fix_cursor)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias lg='lazygit'
+MODE_CURSOR_VIINS="#00ff00 blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
+MODE_CURSOR_VICMD="green block"
+MODE_CURSOR_SEARCH="#ff00ff steady underline"
+MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
-source ~/.zshrc-autobahn
-source ~/.zshrc-todo
 
-alias szsh='source ~/.zshrc'
-
-function vzsh {
-	vim ~/.zshrc 
-	source ~/.zshrc
-}
-function vvrc {
-	vim ~/.vimrc 
-	source ~/.zshrc
-}
-function vzshab {
-	vim ~/.zshrc-autobahn 
-	source ~/.zshrc
-}
-function vzshtdo {
-	vim ~/.zshrc-todo 
-	source ~/.zshrc
-}
-
-# Enable Vim mode in ZSH
-bindkey -v
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
-bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
-bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
-bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
-bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
-
-# for go programming language
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -125,6 +125,31 @@ export EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# start bash agent
+SSH_ENV="/home/pi/.ssh/environment"
+
+function start_agent {
+        echo "Initialising new SSH agent..."
+        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+        chmod 600 "${SSH_ENV}"
+        . "${SSH_ENV}" > /dev/null
+        echo succeeded. ssh-agent started
+        # /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "" ]; then
+        . "${SSH_ENV}" > /dev/null
+        #ps  doesn't work under cywgin
+        ps -ef | grep  | grep ssh-agent$ > /dev/null || {
+                start_agent;
+}
+else
+        start_agent;
+fi
+
+# fix cursor sometimes get stuck in wrong mode. make it a blinking bar cursor on pre command
 _fix_cursor() {
 	echo -ne '\e[5 q'
 }

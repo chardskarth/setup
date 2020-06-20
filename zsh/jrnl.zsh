@@ -31,8 +31,12 @@ worklog() {
 }
 
 vcfgj() {
-	nvim "$scriptDirPath/jrnl.zsh"
+	nvim "$scriptDirPathJ/jrnl.zsh"
 	omzr
+}
+
+ccfgj() {
+	cat "$scriptDirPathJ/jrnl.zsh"
 }
 
 vjrnlrc() {
@@ -43,8 +47,22 @@ j() {
 	jrnl $@
 }
 
-jdate() {
+__jdate() {
 	ehh=$(eval "date --date='$@' +%Y-%m-%d")
+	echo $ehh
+}
+
+
+jdate() {
+	if [ -z $1 ]
+	then
+		echo -n "Specify date: "
+		read specifieddate
+		ehh=$(eval "__jdate $specifieddate")
+		ehh=${ehh##Specify date: }
+	else
+		ehh=$(eval "__jdate $@")
+	fi
 	echo $ehh
 }
 
@@ -72,3 +90,4 @@ jmissionstatementedit() {
 
 	rm $tempfile
 }
+

@@ -91,12 +91,15 @@ let mapleader = " "
 
 call MapBoth('noremap', '<Leader>;q', '<Esc>:q<CR>') " ease of quitting, saving. both normal and insert mode
 call MapBoth('noremap', '<Leader>;qqq', '<Esc>:q!<CR>')
-call MapBoth('noremap', '<Leader>;w', '<Esc>:w<CR>')
+call MapBoth('noremap', '<Leader>;w', '<Esc>:noh<CR>:w<CR>')
 call MapBoth('noremap', '<Leader>;ewq', '<Esc>:wq!<CR>')
 
 " navigate to next and previous tabs
 nnoremap <Leader>;n :tabnext<CR> 
 nnoremap <Leader>;p :tabprev<CR>
+
+noremap! <Esc> <Nop>
+noremap! jk <Esc>:noh<CR>
 
 " for split pane navigation 
 noremap! <C-J> <C-W><C-J>

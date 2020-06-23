@@ -20,6 +20,10 @@ jworklog() {
 	fi
 }
 
+catj() {
+	cat ~/.jrnl/journal.txt
+}
+
 jworklog@() {
 	jrnl @worklog | less
 }
@@ -91,3 +95,31 @@ jmissionstatementedit() {
 	rm $tempfile
 }
 
+cmissionstatement() {
+	jrnl @missionstatement -n 1
+}
+
+jgoals() {
+	jrnl @goals -n 1 | less
+}
+
+jgoalsedit() {
+	tempfile=$(mktemp)
+	mstatement=$(jrnl @goals -n 1 | sed 's/| //g')
+	before=$(echo $mstatement | md5sum)
+	echo $mstatement >> $tempfile
+	nvim -c 'set syntax=jrnl' $tempfile
+	after=$(cat $tempfile | md5sum)
+	if [ "$before" != "$after" ]
+	then 
+		jrnl --import -i $tempfile
+	else
+		echo 'no changes. ignoring'
+	fi
+
+	rm $tempfile
+}
+
+cgoals() {
+	jrnl @goals -n 1
+}

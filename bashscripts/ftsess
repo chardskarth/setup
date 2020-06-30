@@ -1,0 +1,2 @@
+local session
+session=$(tmux list-sessions -F "#{session_name}" | fzf --reverse --query="$1") && tmux switch-client -t "$session"

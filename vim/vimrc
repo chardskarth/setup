@@ -32,6 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'dylanaraps/wal.vim'
 " Plug 'chrisbra/Colorizer'
 Plug 'flazz/vim-colorschemes' "
+Plug 'thiagoalessio/rainbow_levels.vim'
 "  }}
 
 " {{ autocomplete plugins and syntax supports
@@ -81,6 +82,17 @@ set splitbelow splitright           " make splitting of panes more intuitive
 
 " }}
 
+" {{ Rainbow settings https://jonajacek.github.io/colors
+hi! RainbowLevel0 ctermfg=047|"ctermfg=068 guifg=#6699cc
+hi! RainbowLevel1 ctermfg=045|"ctermfg=203 guifg=#ec5f67
+hi! RainbowLevel2 ctermfg=190|"ctermfg=221 guifg=#fac863
+hi! RainbowLevel3 ctermfg=214|"ctermfg=114 guifg=#99c794
+hi! RainbowLevel4 ctermfg=129|"ctermfg=176 guifg=#c594c5
+hi! RainbowLevel5 ctermfg=160|"ctermfg=209 guifg=#f99157
+hi! RainbowLevel6 ctermfg=165|"ctermfg=073 guifg=#62b3b2
+hi! RainbowLevel7 ctermfg=009|"ctermfg=137 guifg=#ab7967
+" }}
+
 " {{ Custom key mappings
 function! MapBoth(mapmode, keys, rhs)
     execute 'n'.a:mapmode a:keys a:rhs
@@ -100,6 +112,7 @@ nnoremap <Leader>;p :tabprev<CR>
 
 noremap! <Esc> <Nop>
 noremap! jk <Esc>:noh<CR>
+vnoremap jk <Esc>:noh<CR>
 
 " for split pane navigation 
 noremap! <C-J> <C-W><C-J>

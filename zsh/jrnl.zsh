@@ -100,18 +100,20 @@ cmissionstatement() {
 }
 
 jgoals() {
-	jrnl @goals -n 1 | less
+	jrnl @goals -n 1
 }
 
 jgoalsedit() {
 	tempfile=$(mktemp)
-	mstatement=$(jrnl @goals -n 1 | sed 's/| //g')
+	mstatement=$(jrnl @goals -n 1 | sed -e 's/| //g' -e 's/\s\{2\}/\t/g' | tail -n+2)
 	before=$(echo $mstatement | md5sum)
 	echo $mstatement >> $tempfile
-	nvim -c 'set syntax=jrnl' $tempfile
+	nvim -c 'set syntax=jrnl|set foldmethod=indent|RainbowLevelsOn' $tempfile
+	nvimstatus=$?
 	after=$(cat $tempfile | md5sum)
-	if [ "$before" != "$after" ]
-	then 
+	if [[ "$before" != "$after" && $nvimstatus -eq 0 ]]
+	then
+		sed -i -e '1i\@goals' -e 's/\t/  /g' $tempfile #append @goals in first line
 		jrnl --import -i $tempfile
 	else
 		echo 'no changes. ignoring'
@@ -120,6 +122,6 @@ jgoalsedit() {
 	rm $tempfile
 }
 
-cgoals() {
-	jrnl @goals -n 1
+jcoffee() {
+	jrnl @coffee
 }

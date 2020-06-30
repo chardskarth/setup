@@ -27,6 +27,20 @@ tdone() {
 	task done $@
 }
 
+tundo() {
+	echo "yes" | task undo
+}
+
+tedit() {
+	paramStr="$@"
+	annotext=${paramStr#* }
+	task $1 edit $annotext
+}
+
+tinbox() {
+	task $@ mod sch:
+}
+
 tanno() {
 	paramStr="$@"
 	annotext=${paramStr#* }
@@ -75,9 +89,17 @@ projects() {
 	task projects
 }
 
+tags() {
+	task tags
+}
+
 vcfgtw() {
 	nvim "$scriptPathTw"
 	omzr
+}
+
+ccfgtw() {
+	cat "$scriptPathTw"
 }
 
 catcfgtw() {
@@ -86,6 +108,14 @@ catcfgtw() {
 
 vtaskrc() {
 	nvim "$HOME/.taskrc"
+}
+
+ctaskrc() {
+	cat "$HOME/.taskrc"
+}
+
+cdtaskhooks() {
+	cd "$HOME/.task/hooks"
 }
 
 # create file OB

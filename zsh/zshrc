@@ -94,10 +94,13 @@ source $ZSH/oh-my-zsh.sh
 
 path=('/home/pi/.local/bin' $path)
 
-EDITOR=vim
+EDITOR=nvim
 
 export path
 export EDITOR
+#export LESSOPEN="/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+#export LESSOPEN="|highlight --out-format=xterm256 %s"
+#export LESS=" -R "
 
 # User configuration
 

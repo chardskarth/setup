@@ -21,11 +21,11 @@ jworklog() {
 }
 
 catj() {
-	cat ~/.jrnl/journal.txt
+	nvim -R -c "set syntax=jrnl|view" ~/.jrnl/journal.txt
 }
 
 jworklog@() {
-	jrnl @worklog | less
+	jrnl @worklog | nvim -R -c 'set syntax=jrnl' -
 }
 
 worklog() {

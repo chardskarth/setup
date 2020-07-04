@@ -1,10 +1,18 @@
 omzr() {
-source ~/.zshrc	
+	source ~/.zshrc	
+}
+
+vbashrc() {
+	nvim ~/.bashrc
 }
 
 vcfg() {
 	nvim ~/.oh-my-zsh/custom/easy-configs.zsh
 	omzr
+}
+
+ccfg() {
+	cat ~/.oh-my-zsh/custom/easy-configs.zsh
 }
 
 vvimrc() {
@@ -13,6 +21,10 @@ vvimrc() {
 
 vzshrc() {
 	nvim ~/.zshrc
+}
+
+vcfgtm() {
+	nvim ~/.tmux.conf
 }
 
 cdcfg() {
@@ -35,10 +47,14 @@ sushutdown() {
 	sudo shutdown now
 }
 
-ta() {
-	tmux attach
+unalias lsa
+lsa() {
+	ls -lah $@ | grep --color=always -v "\.$"
 }
 
 alias -g L='| less'
 alias -g G='| grep'
+alias -g H='| highlight --out-format=xterm256 --force'
 alias v=nvim
+
+#alias lsa='ls -lah | grep -v "\.$"'

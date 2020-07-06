@@ -93,7 +93,7 @@ alias gdcached='git diff --cached'
  
 source $ZSH/oh-my-zsh.sh
 
-path=('/home/pi/.local/bin' $path)
+path=($HOME'/.local/bin' $path)
 
 EDITOR=nvim
 

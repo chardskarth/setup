@@ -52,6 +52,11 @@ lsa() {
 	ls -lah $@ | grep --color=always -v "\.$"
 }
 
+# credits to: https://stackoverflow.com/a/3572105
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 alias -g L='| less'
 alias -g G='| grep'
 alias -g H='| highlight --out-format=xterm256 --force'

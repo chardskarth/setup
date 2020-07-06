@@ -1,4 +1,4 @@
-scriptPathJ=$(readlink -f "$0")
+scriptPathJ=$(realpath "$0")
 scriptDirPathJ=$(dirname $scriptPathJ)
 
 jrnltoday() {
@@ -100,7 +100,11 @@ cmissionstatement() {
 }
 
 jgoals() {
-	jrnl @goals -n 1
+	tempfile=$(mktemp)
+	mstatement=$(jrnl @goals -n 1 | sed -e 's/| //g' -e 's/\s\{2\}/\t/g' | tail -n+2)
+	echo $mstatement >> $tempfile
+	nvim -R -c 'set syntax=jrnl|set foldmethod=indent|RainbowLevelsOn' $tempfile
+	rm $tempfile
 }
 
 jgoalsedit() {

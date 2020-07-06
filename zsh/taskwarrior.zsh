@@ -1,4 +1,4 @@
-scriptPathTw=$(readlink -f "$0")
+scriptPathTw=$(realpath "$0")
 scriptDirPathTw=$(dirname $scriptPathTw)
 
 tdonetoday() {
@@ -146,6 +146,7 @@ tadd_bills2() {
 	fi
 	task add +bills pay smart bill sch:$1
 	task add +bills pay manulife bill sch:$1
+	task add +bills pay meralco bill sch:$1
 	id=$(_taddgetid +bills pay glecy netflix,spotify sch:$1)
 	echo "Created task $id"
 	eval "tanno $id '$((250+50-250+140+50))=250(my nflix shre) + 50(my sptfy shre) - 250(ur scrbd shre) + 140(LeEnin nflix shre) + 50(bob sptfy shre)'"

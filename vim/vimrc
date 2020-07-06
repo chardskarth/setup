@@ -53,6 +53,7 @@ Plug 'senderle/restoreview' "based here:  https://vim.fandom.com/wiki/Make_views
 Plug 'junegunn/vim-easy-align' " Shorthand; fetches https://github.com/junegunn/vim-easy-align
 Plug 'wincent/terminus' "
 Plug 'christoomey/vim-tmux-navigator' "tmux integration for ease of changing focus
+Plug 'embear/vim-localvimrc'
 "  }}
 
 call plug#end()
@@ -60,6 +61,12 @@ call plug#end()
 " }}
 
 " {{ Settings and keymapping
+
+" {{ localvimrc settings
+let g:localvimrc_enable = 1
+let g:localvimrc_ask = 0
+" }}
+
 " {{ aesthetic. Font, space rendering, tabstops
 " indentation settings https://vim.fandom.com/wiki/Indenting_source_code?section=5
 
@@ -83,13 +90,13 @@ set splitbelow splitright           " make splitting of panes more intuitive
 " }}
 
 " {{ Rainbow settings https://jonajacek.github.io/colors
-hi! RainbowLevel0 ctermfg=093|"ctermfg=068 guifg=#6699cc
-hi! RainbowLevel1 ctermfg=027|"ctermfg=203 guifg=#ec5f67
-hi! RainbowLevel2 ctermfg=051|"ctermfg=221 guifg=#fac863
+hi! RainbowLevel0 ctermfg=099|"ctermfg=068 guifg=#6699cc
+hi! RainbowLevel1 ctermfg=039|"ctermfg=203 guifg=#ec5f67
+hi! RainbowLevel2 ctermfg=087|"ctermfg=221 guifg=#fac863
 hi! RainbowLevel3 ctermfg=46|"ctermfg=114 guifg=#99c794
 hi! RainbowLevel4 ctermfg=190|"ctermfg=176 guifg=#c594c5
 hi! RainbowLevel5 ctermfg=208|"ctermfg=209 guifg=#f99157
-hi! RainbowLevel6 ctermfg=088|"ctermfg=073 guifg=#62b3b2
+hi! RainbowLevel6 ctermfg=196|"ctermfg=073 guifg=#62b3b2
 hi! RainbowLevel7 ctermfg=201|"ctermfg=137 guifg=#ab7967
 " }}
 
@@ -139,6 +146,7 @@ noremap O O<Esc>
 noremap o o<Esc>
 
 command! Reload execute "source ~/.vimrc"
+command! Vvimrc execute "e ~/.vimrc"
 
 " had to put bar so I coiuld add comments inline with mappings  https://stackoverflow.com/posts/24717020/revisions
 nnoremap H zc|				  " close fold on current cursor

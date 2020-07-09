@@ -1,0 +1,15 @@
+let mapleader = "\<Space>"
+
+inoremap <Leader>;w <Esc>|"Since this is autosaved just mapping this to esc
+
+nnoremap <Leader>;n :tabnext<CR>
+nnoremap <Leader>;p :tabprev<CR>
+
+inoremap <Esc> <Nop>
+nnoremap <Esc> <Nop>
+vnoremap <Esc> <Nop>
+
+inoremap jk <Esc>:noh<CR>
+nnoremap jk <Esc>:noh<CR>
+vnoremap jk <Esc>:noh<CR>
+

@@ -93,12 +93,12 @@ alias gdcached='git diff --cached'
  
 source $ZSH/oh-my-zsh.sh
 
-path=($HOME'/.local/bin' $path)
+path=($HOME'/.local/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $path)
+export path
 
 EDITOR=nvim
-
-export path
 export EDITOR
+
 #export LESSOPEN="/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 #export LESSOPEN="|highlight --out-format=xterm256 %s"
 #export LESS=" -R "

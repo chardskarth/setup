@@ -1,3 +1,6 @@
+scriptPathCJ=$(realpath "$0")
+scriptDirPathCJ=$(dirname $scriptPathCJ)
+
 omzr() {
 	source ~/.zshrc	
 }
@@ -7,8 +10,15 @@ vbashrc() {
 }
 
 vcfg() {
+	before=$(cat $scriptPathCJ | md5sum)
 	nvim ~/.oh-my-zsh/custom/easy-configs.zsh
-	omzr
+	after=$(cat $scriptPathCJ | md5sum)
+	if [ "$before" != "$after" ]
+	then
+		omzr
+	else
+		echo 'No  changes. Ignoring'
+	fi
 }
 
 ccfg() {

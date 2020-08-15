@@ -89,11 +89,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 plugins=(git zsh-nvm zsh-syntax-highlighting zsh-vim-mode tmux emoji)
+alias lg='lazygit'
 alias gdcached='git diff --cached'
  
 source $ZSH/oh-my-zsh.sh
 
-path=($HOME'/.local/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $path)
+path=($HOME'/.local/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $HOME/go/bin $path)
 export path
 
 EDITOR=nvim

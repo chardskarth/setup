@@ -62,6 +62,9 @@ call plug#end()
 
 " {{ Settings and keymapping
 
+let g:coc_disable_startup_warning=1
+
+
 " {{ localvimrc settings
 let g:localvimrc_enable = 1
 let g:localvimrc_ask = 0
@@ -99,6 +102,7 @@ hi! RainbowLevel5 ctermfg=208|"ctermfg=209 guifg=#f99157
 hi! RainbowLevel6 ctermfg=196|"ctermfg=073 guifg=#62b3b2
 hi! RainbowLevel7 ctermfg=201|"ctermfg=137 guifg=#ab7967
 " }}
+hi! Normal ctermfg=NONE guibg=NONE 
 
 " {{ Custom key mappings
 function! MapBoth(mapmode, keys, rhs)

@@ -21,7 +21,7 @@ jworklog() {
 }
 
 catj() {
-	nvim -R -c "set syntax=jrnl|view" ~/.jrnl/journal.txt
+	nvim -R -c "set syntax=jrnl" ~/.jrnl/journal.txt
 }
 
 jworklog@() {
@@ -35,8 +35,15 @@ worklog() {
 }
 
 vcfgj() {
-	nvim "$scriptDirPathJ/jrnl.zsh"
-	omzr
+	before=$(cat $scriptPathJ | md5sum)
+	nvim "$scriptPathJ"
+	after=$(cat $scriptPathJ | md5sum)
+	if [ "$before" != "$after" ]
+	then
+		omzr
+	else
+		echo 'No  changes. Ignoring'
+	fi
 }
 
 ccfgj() {

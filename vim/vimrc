@@ -134,10 +134,15 @@ noremap! <Esc>[1;5D <C-W>>
 noremap! <Esc>[1;5C <C-W><
 
 " formoving splits 
-nnoremap <C-N> <C-W>r
-nnoremap <C-P> <C-W>R
+noremap! <C-N> <C-W>H
+"noremap! <C-M> <C-W>J  " I can't remap ctrl+m. its acting the same as enter
+noremap! <C-,> <C-W>K
+noremap! <C-.> <C-W>L
 
-noremap <C-P> <Esc>:FZF<CR>
+"noremap <C-P> <Esc>:FZF<CR> Let\'s use :GFiles instead!
+noremap <C-P> <Esc>:GFiles<CR>
+noremap <C-f> <Esc>:Ag<CR>
+let g:fzf_preview_window = 'right:60%'
 
 imap GG <Esc>G$i
 
@@ -209,7 +214,8 @@ nmap <leader>rn <Plug>(coc-rename)
 " }}
 
 " {{ nerd tree settings
-call MapBoth('noremap', '<Leader>;t', '<Esc>:NERDTreeToggle<CR>')
+call MapBoth('noremap', '<Leader>;tt', '<Esc>:NERDTreeToggle<CR>')
+call MapBoth('noremap', '<Leader>;tf', '<Esc>:NERDTreeFind<CR>')
 " map  <leader>;t :NERDTreeToggle<cr>
 " map  <leader>tf :NERDTreeFind<cr>
 " }}

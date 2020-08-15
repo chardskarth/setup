@@ -8,8 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export HOME="/home/chardskarth"
 # Path to your oh-my-zsh installation.
-export ZSH="/home/pi/.oh-my-zsh"
+export ZSH=$HOME"/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -131,7 +132,7 @@ export EDITOR
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # start bash agent
-SSH_ENV="/home/pi/.ssh/environment"
+SSH_ENV=$HOME"/.ssh/environment"
 
 function start_agent {
         echo "Initialising new SSH agent..."

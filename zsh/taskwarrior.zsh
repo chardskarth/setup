@@ -95,7 +95,7 @@ tags() {
 
 vcfgtw() {
 	nvim "$scriptPathTw"
-	omzr
+	source $scriptPathTw
 }
 
 ccfgtw() {

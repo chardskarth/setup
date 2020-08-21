@@ -24,23 +24,13 @@ catj() {
 	nvim -R -c "set syntax=jrnl" ~/.jrnl/journal.txt
 }
 
-jworklog@() {
-	jrnl @worklog | nvim -R -c 'set syntax=jrnl' -
-}
-
-worklog() {
-	tempfile=$(mktemp)
-	jrnl @worklog > $tempfile
-	nvim -c "set syntax=jrnl" $tempfile
-}
-
 vcfgj() {
 	before=$(cat $scriptPathJ | md5sum)
 	nvim "$scriptPathJ"
 	after=$(cat $scriptPathJ | md5sum)
 	if [ "$before" != "$after" ]
 	then
-		omzr
+		source $scriptPathJ
 	else
 		echo 'No  changes. Ignoring'
 	fi

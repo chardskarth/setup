@@ -1,10 +1,6 @@
 scriptPathCJ=$(realpath "$0")
 scriptDirPathCJ=$(dirname $scriptPathCJ)
 
-omzr() {
-	source ~/.zshrc	
-}
-
 vbashrc() {
 	nvim ~/.bashrc
 }
@@ -15,7 +11,7 @@ vcfg() {
 	after=$(cat $scriptPathCJ | md5sum)
 	if [ "$before" != "$after" ]
 	then
-		omzr
+		source $scriptPathCJ
 	else
 		echo 'No  changes. Ignoring'
 	fi

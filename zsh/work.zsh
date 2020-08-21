@@ -3,8 +3,19 @@ scriptDirPathAb=$(dirname $scriptPathAb)
 
 vcfgab() {
 	nvim $scriptPathAb
-	omzr
+	source $scriptPathAb
 }
+
+jworklog@() {
+	jrnl @worklog | nvim -R -c 'set syntax=jrnl' -
+}
+
+worklog() {
+	tempfile=$(mktemp)
+	jrnl @worklog > $tempfile
+	nvim -c "set syntax=jrnl" $tempfile
+}
+
 
 jretro() {
 	j @forretro $@

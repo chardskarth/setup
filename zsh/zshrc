@@ -19,8 +19,8 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle tmux
 antigen bundle emoji
+antigen bundle zsh-users-highlighting
 
-antigen bundle zsh-users/zsh-users-highlighting
 antigen bundle lukechilds/zsh-nvm
 antigen bundle softmoth/zsh-vim-mode
 

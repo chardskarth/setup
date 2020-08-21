@@ -69,3 +69,11 @@ alias -g H='| highlight --out-format=xterm256 --force'
 alias v=nvim
 
 #alias lsa='ls -lah | grep -v "\.$"'
+allanpokemon () {
+        while true
+        do
+                sleep $1
+                pokemon -v | tail | awk '{print $9}'
+                echo
+        done
+}

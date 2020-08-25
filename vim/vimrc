@@ -33,6 +33,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'chrisbra/Colorizer'
 Plug 'flazz/vim-colorschemes' "
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'frazrepo/vim-rainbow'
 "  }}
 
 " {{ autocomplete plugins and syntax supports
@@ -47,6 +48,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " {{ miscellaneous Plugins
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'chrisbra/recover.vim'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'senderle/restoreview' "based here:  https://vim.fandom.com/wiki/Make_views_automatic
@@ -55,6 +57,10 @@ Plug 'wincent/terminus' "
 Plug 'christoomey/vim-tmux-navigator' "tmux integration for ease of changing focus
 Plug 'embear/vim-localvimrc'
 "  }}
+
+" {{ java, kotlin, gradle
+Plug 'hdiniz/vim-gradle'
+" }}
 
 call plug#end()
 
@@ -104,6 +110,7 @@ hi! RainbowLevel7 ctermfg=201|"ctermfg=137 guifg=#ab7967
 " }}
 hi! Normal ctermbg=NONE guibg=NONE 
 hi! LineNr ctermbg=NONE guibg=NONE 
+let g:rainbow_active = 1
 
 " {{ Custom key mappings
 function! MapBoth(mapmode, keys, rhs)
@@ -125,6 +132,7 @@ nnoremap <Leader>;p :tabprev<CR>
 noremap! <Esc> <Nop>
 noremap! jk <Esc>:noh<CR>
 vnoremap jk <Esc>:noh<CR>
+tnoremap <Esc> <C-\><C-n>
 
 " for split pane navigation 
 noremap! <C-J> <C-W><C-J>
@@ -148,6 +156,7 @@ noremap! <C-.> <C-W>L
 noremap <C-P> <Esc>:GFiles<CR>
 noremap <C-f> <Esc>:Ag<CR>
 let g:fzf_preview_window = 'right:60%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 imap GG <Esc>G$i
 

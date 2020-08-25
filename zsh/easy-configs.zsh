@@ -41,6 +41,14 @@ cdsrc() {
 	cd ~/sources
 }
 
+cdsrclo() {
+	cd ~/sources/gitlocal-raspi
+}
+
+cdsrcsetup() {
+	cd ~/sources/github-chardskarth/setup
+}
+
 cdlbin() {
 	cd ~/.local/bin
 }

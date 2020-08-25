@@ -185,3 +185,4 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"

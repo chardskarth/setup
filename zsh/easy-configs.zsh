@@ -25,6 +25,10 @@ vvimrc() {
 	nvim ~/.vimrc
 }
 
+vnvim() {
+	nvim ~/.config/nvim
+}
+
 vzshrc() {
 	nvim ~/.zshrc
 }
@@ -41,8 +45,12 @@ cdsrc() {
 	cd ~/sources
 }
 
-cdsrclo() {
+cdlsrc() {
 	cd ~/sources/gitlocal-raspi
+}
+
+cdgsrc() {
+	cd ~/sources/github-chardskarth
 }
 
 cdsrcsetup() {

@@ -59,5 +59,6 @@ Plug 'mhinz/vim-startify'
 Plug 'KurtPreston/vimcolors'
 Plug 'liuchengxu/vim-which-key'
 Plug 'vimwiki/vimwiki'
+Plug 'fifi2/gtd.vim'
 
 call plug#end()

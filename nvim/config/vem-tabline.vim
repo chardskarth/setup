@@ -1,5 +1,5 @@
 let g:vem_tabline_multiwindow_mode = 1
-
+let g:vem_tabline_show_number='index'
 
 "hi TabLineFill guifg=NONE guibg=NONE
 "hi TabLine guifg=grey50 guibg=NONE

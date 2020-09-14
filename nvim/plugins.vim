@@ -2,7 +2,7 @@ let g:PLUG_PATH = '$HOME/.config/nvim/autoload/plug.vim'
 let g:PLUGINS_PATH = '$HOME/.config/nvim/autoload/plug-plugins.vim'
 
 if empty(glob(g:PLUG_PATH))
-    execute '!curl‧-fLo '.g:PLUG_PATH.' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    execute '!curl -fLo '.g:PLUG_PATH.' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync
 endif
 

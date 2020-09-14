@@ -19,8 +19,10 @@ ls -lah $DIR/zsh | grep -v -e zshrc$ -e p10k -e \\.$ | awk '{print $9}' | xargs 
 ln -sf $DIR/vim/vimrc $HOME/.vimrc
 ln -sf $DIR/tmux/tmux.conf $HOME/.tmux.conf
 
-# nvim
+# nvim for linux
 find $DIR/nvim -type f -not -path $DIR'/nvim/autoload/*' -printf '%P\n' | xargs -I{} ln -sf $DIR/nvim/{} $HOME/.config/nvim/{}
-#ln -sf $DIR/nvim $HOME/.config/
+
+# nvim install for macos
+# find $DIR/nvim -type f -not -path $DIR'/nvim/autoload/*' -exec stat -f "%N" {} \; | sed $(echo 's#'$DIR'##g') | xargs -I{} ln -sf $DIR{} $HOME/.config{}
 
 

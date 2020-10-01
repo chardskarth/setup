@@ -16,7 +16,7 @@ set tabstop=2                       " <TAB> occupies 2 spaces
 set shiftwidth=2                    " just see the indentation settings above. lol
 set softtabstop=2
 set splitbelow splitright           " make splitting of panes more intuitive
-
+set mouse-=a
 " }}
 
 command! Reload execute "source ~/.config/nvim/init.vim"
@@ -28,3 +28,7 @@ command! Vimkeys execute "e ~/.config/nvim/config/whichkey.vim"
 function! MyGetDate() 
   put =strftime('%Y%m%d')
 endfunction
+
+set switchbuf+=useopen
+
+set noshowmode

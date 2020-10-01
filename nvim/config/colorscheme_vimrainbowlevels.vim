@@ -1,7 +1,7 @@
 set termguicolors
 
 " set background=dark								" keeping here for reference but I think this setting is pointless when using a colorscheme
-colorscheme sandydune "medic_chalk true hyper medic_chalk sonokai pulumi spacegray
+colorscheme moonfly "sandydune "medic_chalk true hyper medic_chalk sonokai pulumi spacegray
 
 " {{ rainbow settings https://jonajacek.github.io/colors
 hi! rainbowlevel0 ctermfg=099|"ctermfg=068 guifg=#6699cc

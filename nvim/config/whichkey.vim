@@ -8,7 +8,7 @@
 "		call timer_start(200, "MyDelayedStart")
 "		return
 "	endif
-"	
+"
 "	call NERDTreeAddKeyMap({
 "	    \ 'key': '<CR>',
 "	    \ 'scope': 'FileNode',
@@ -23,7 +23,7 @@
 
 inoremap <Leader><BS> <C-w>
 
-" for split pane navigation 
+" for split pane navigation
 noremap! <C-J> <C-W><C-J>
 noremap! <C-K> <C-W><C-K>
 noremap! <C-L> <C-W><C-L>
@@ -45,11 +45,20 @@ let g:which_key_map.1 = [':VemTablineGo 1', 'which_key_ignore']
 let g:which_key_map.2 = [':VemTablineGo 2', 'which_key_ignore']
 let g:which_key_map.3 = [':VemTablineGo 3', 'which_key_ignore']
 let g:which_key_map.4 = [':VemTablineGo 4', 'which_key_ignore']
+let g:which_key_map.5 = [':VemTablineGo 5', 'which_key_ignore']
+let g:which_key_map.6 = [':VemTablineGo 6', 'which_key_ignore']
+let g:which_key_map.7 = [':VemTablineGo 7', 'which_key_ignore']
+let g:which_key_map.8 = [':VemTablineGo 8', 'which_key_ignore']
+let g:which_key_map.9 = [':VemTablineGo 9', 'which_key_ignore']
 
+
+			"\, 'W':['<Plug>(submode-before-entering:window:with:<leader>W)<Plug>(submode-before-entering:window)<Plug>(submode-enter:window)', 'Window submode']
 let g:which_key_map.w = { 'name': '+windows'
-			\, 'w':['<C-W>w', 'wincmd w']
-			\, 'W': ['<C-W>W', 'windcmd W']
+			\, 'n':[':TilerNew', 'Tiler new']
+			\, 'r':[':TilerReorder', 'Tiler reorder']
+			\, 'f':[':TilerFocus', 'Tiler focus']
 			\, 't': ['<Plug>GoldenViewSwitchToggle', 'Golden view toggle']
+			\, 'x': [':clo', 'Close window']
 			\, 's': ['<Plug>GoldenViewSplit', 'Golden view split']}
 
 let g:which_key_map.t = { 'name': '+tagbar'
@@ -95,13 +104,15 @@ let g:which_key_map.i = { 'name': '+insert'
 let g:which_key_map[';'] = { 'name': '+quickies' }
 noremap! j; <Esc>:noh<CR>
 vnoremap j; <Esc>:noh<CR>
-nnoremap <leader>;x :clo<CR>
+nnoremap <leader>;wx :Bdelete<CR>
 nnoremap <leader>;r :Reload<CR>
+inoremap <leader>;p <Esc>mzp`zi
 
 function! MapBoth(mapmode, keys, rhs)
     execute 'n'.a:mapmode a:keys a:rhs
     execute 'i'.a:mapmode a:keys a:rhs
 endfunction
+
 call MapBoth('noremap', '<Leader>;w', '<Esc>:noh<CR>:w<CR>')
 call MapBoth('noremap', '<Leader>;ef', '<Esc>:NERDTreeFind<CR>')
 
@@ -119,7 +130,7 @@ nnoremap <Leader>;L zr| " increase folding level
 
 " moving text above or below. this was a useful thing in vscode
 " http://vim.wikia.com/wiki/Moving_lines_up_or_down ∆ is ALT-j ˚ is ALT-k
-nnoremap ∆ :m .+1<CR>==     
+nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
@@ -128,4 +139,8 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 noremap ‘ :tabnext<CR>
 noremap “ :tabprev<CR>
 
+" EasyAlign: Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
+" EasyAlign: Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

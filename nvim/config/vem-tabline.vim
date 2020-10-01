@@ -1,4 +1,4 @@
-let g:vem_tabline_multiwindow_mode = 1
+let g:vem_tabline_multiwindow_mode = 0
 let g:vem_tabline_show_number='index'
 
 "hi TabLineFill guifg=NONE guibg=NONE

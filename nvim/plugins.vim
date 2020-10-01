@@ -10,8 +10,8 @@ endif
 call plug#begin(g:PLUGINS_PATH)
 
 " {{ Plugin: aesthetics
-Plug 'vim-airline/vim-airline' 
-Plug 'vim-airline/vim-airline-themes' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'rainglow/vim' 			> commented since I'm now using
 " Plug 'NLKNguyen/papercolor-theme'	> dylanaraps' pywal
 " Plug 'dylanaraps/wal.vim'
@@ -47,7 +47,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'hdiniz/vim-gradle'
 " }}
 
-Plug 'RobertAudi/GoldenView.vim'
+"Plug 'RobertAudi/GoldenView.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'unblevable/quick-scope'
 Plug 'majutsushi/tagbar'
@@ -60,5 +60,11 @@ Plug 'KurtPreston/vimcolors'
 Plug 'liuchengxu/vim-which-key'
 Plug 'vimwiki/vimwiki'
 Plug 'fifi2/gtd.vim'
+Plug 'moll/vim-bbye'
+Plug 'nishigori/increment-activator'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Iron-E/vim-libmodal' "Plug 'Iron-E/nvim-libmodal' -- the way im using it doesnt work until Neovim 0.5
+Plug 'tpope/vim-surround'
+Plug 'bluz71/vim-moonfly-colors'
 
 call plug#end()

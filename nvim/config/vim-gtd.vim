@@ -3,10 +3,10 @@ let g:gtd#dir = '~/notes'
 let g:gtd#review = [
 	\ '!actionable',
 	\ '!inbox',
+	\ '!ongoing',
 	\ '!waiting',
+	\ '!backlog',
 	\ '!scheduled.*',
-	\ '@work',
-	\ '@personalproject',
 	\ ]
 
 " \ '(!inbox + !scheduled-'.strftime("%Y%m%d").')',

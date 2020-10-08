@@ -35,5 +35,6 @@ let g:airline_mode_map = {
     \ 'V'  : 'V',
     \ '' : 'V',
     \ 's'  : 'S',
+    \ 'ic'  : 'δ',
     \ }
 

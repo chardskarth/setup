@@ -20,3 +20,5 @@ hi! LineNr ctermbg=NONE guibg=NONE
 hi VertSplit guibg=NONE guifg=grey50 gui=none
 hi SignColumn	guibg=NONE gui=none
 hi NonText guibg=NONE
+
+highlight Conceal guifg=#80a0ff

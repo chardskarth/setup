@@ -37,4 +37,5 @@ source $HOME/.config/nvim/config/vim-startify.vim
 source $HOME/.config/nvim/config/vim-pbcopy.vim
 source $HOME/.config/nvim/config/vim-gtd.vim
 source $HOME/.config/nvim/config/vim-libmodal.vim
+source $HOME/.config/nvim/config/language-configs.vim
 

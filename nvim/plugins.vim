@@ -6,6 +6,7 @@ if empty(glob(g:PLUG_PATH))
     autocmd VimEnter * PlugInstall --sync
 endif
 
+
 " {{ Plugins
 call plug#begin(g:PLUGINS_PATH)
 
@@ -26,7 +27,7 @@ Plug 'frazrepo/vim-rainbow'
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "  }}
 
@@ -43,8 +44,12 @@ Plug 'christoomey/vim-tmux-navigator' "tmux integration for ease of changing foc
 Plug 'embear/vim-localvimrc'
 "  }}
 
-" {{ java, kotlin, gradle
+" {{ language packs
 Plug 'hdiniz/vim-gradle'
+Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'chemzqqm/vim-jsx-improve'
 " }}
 
 "Plug 'RobertAudi/GoldenView.vim'
@@ -66,5 +71,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Iron-E/vim-libmodal' "Plug 'Iron-E/nvim-libmodal' -- the way im using it doesnt work until Neovim 0.5
 Plug 'tpope/vim-surround'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'tpope/vim-eunuch'
 
 call plug#end()

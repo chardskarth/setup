@@ -32,3 +32,5 @@ endfunction
 set switchbuf+=useopen
 
 set noshowmode
+
+set conceallevel=1

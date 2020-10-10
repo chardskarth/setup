@@ -19,6 +19,37 @@ set splitbelow splitright           " make splitting of panes more intuitive
 set mouse-=a
 " }}
 
+" TextEdit might fail if hidden is not set.
+set hidden
+
+"" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+"" Give more space for displaying messages.
+set cmdheight=2
+
+"" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+"" delays and poor user experience.
+set updatetime=300
+
+"" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+"" Always show the signcolumn, otherwise it would shift the text each time
+"" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+" Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+set switchbuf+=useopen
+
+set noshowmode
+
+set conceallevel=1
+
 command! Reload execute "source ~/.config/nvim/init.vim"
 command! Vimrc execute "e ~/.config/nvim/init.vim"
 command! Vimconf execute "e ~/.config/nvim/config/general_and_my_fns.vim"
@@ -29,8 +60,14 @@ function! MyGetDate()
   put =strftime('%Y%m%d')
 endfunction
 
-set switchbuf+=useopen
+fun MyInsertWake()
+  put ='[wake:<<*>>] [sleep:<<*>>] [sleepefficiency:<<*>>] [mysleeprating:<<*>>]'
+endf
 
-set noshowmode
+fun! MyJumpMove()
+  "execute "normal! /<<\\*>>\<cr>"
+  call feedkeys("\<esc>/<<\\*>>\<cr>c5l")
+endf
 
-set conceallevel=1
+
+

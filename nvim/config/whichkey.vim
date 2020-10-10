@@ -98,7 +98,8 @@ let g:which_key_map.g = { 'name': '+gtd'
 			\, 'r': [':GtdRefresh', 'Refresh']}
 
 let g:which_key_map.i = { 'name': '+insert'
-			\, 'd': [':call MyGetDate()', 'Date']}
+			\, 'd': [':call MyGetDate()', 'Date']
+			\, 'w': [':call MyInsertWake()', 'Gtd wakeup tags']}
 
 " quickies
 let g:which_key_map[';'] = { 'name': '+quickies' }
@@ -107,6 +108,9 @@ vnoremap j; <Esc>:noh<CR>
 nnoremap <leader>;wx :Bdelete<CR>
 nnoremap <leader>;r :Reload<CR>
 inoremap <leader>;p <Esc>mzp`zi
+inoremap <leader>;P <Esc>mzP`zi
+nnoremap <leader>;j :call MyJumpMove()<CR>
+inoremap <leader>;j <Esc>:call MyJumpMove()<CR>
 
 function! MapBoth(mapmode, keys, rhs)
     execute 'n'.a:mapmode a:keys a:rhs

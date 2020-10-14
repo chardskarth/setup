@@ -34,7 +34,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " {{ miscellaneous Plugins
 Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/recover.vim'
-Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'senderle/restoreview' "based here:  https://vim.fandom.com/wiki/Make_views_automatic
@@ -72,5 +71,7 @@ Plug 'Iron-E/vim-libmodal' "Plug 'Iron-E/nvim-libmodal' -- the way im using it d
 Plug 'tpope/vim-surround'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'tpope/vim-eunuch'
+Plug 'honza/vim-snippets'
+
 
 call plug#end()

@@ -1,0 +1,11 @@
+{
+	
+	"snippets.ultisnips.directories": [
+		  "UltiSnips",
+			"gosnippets/UltiSnips"
+				
+	],
+
+	"eslint.autoFixOnSave": true,
+	"javascript.suggestionActions.enabled": false
+}

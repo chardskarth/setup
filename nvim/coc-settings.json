@@ -1,5 +1,5 @@
 {
-	
+	"snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
 	"snippets.ultisnips.directories": [
 		  "UltiSnips",
 			"gosnippets/UltiSnips"
@@ -7,5 +7,12 @@
 	],
 
 	"eslint.autoFixOnSave": true,
-	"javascript.suggestionActions.enabled": false
+	"javascript.suggestionActions.enabled": false,
+
+	"languageserver": {
+		"kotlin": {
+			"command": "~/lsp/kotlin/bin/kotlin-language-server",
+			"filetypes": ["kotlin"]
+		}
+	}
 }

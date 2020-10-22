@@ -48,6 +48,7 @@ Plug 'hdiniz/vim-gradle'
 Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'udalov/kotlin-vim'
 "Plug 'chemzqqm/vim-jsx-improve'
 " }}
 
@@ -72,6 +73,5 @@ Plug 'tpope/vim-surround'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'tpope/vim-eunuch'
 Plug 'honza/vim-snippets'
-
 
 call plug#end()

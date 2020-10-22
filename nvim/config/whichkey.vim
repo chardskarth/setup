@@ -71,6 +71,9 @@ let g:which_key_map.f = { 'name': '+fzf'
 			\, 'x': [':BD', 'Delete buffers']}
 
 let g:which_key_map.l = { 'name': '+languageServer'
+			\, 's': [':CocCommand snippets.editSnippets', 'Edit snippets for filetype']
+			\, 'f': ['<Plug>(coc-codeaction-selected)', 'Code action selected']
+			\, 'c': ['<Plug>(coc-codeaction)', 'Code action']
 			\, 'r': ['<Plug>(coc-references)', 'References']}
 "			\ 'c': { 'name': '+vim-coc' },
 "			\ }

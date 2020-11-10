@@ -33,6 +33,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " {{ miscellaneous Plugins
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'chrisbra/recover.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

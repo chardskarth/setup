@@ -83,6 +83,7 @@ alias -g L='| less'
 alias -g G='| grep'
 alias -g H='| highlight --out-format=xterm256 --force'
 alias v=nvim
+alias aptinst='sudo apt install '
 
 #alias lsa='ls -lah | grep -v "\.$"'
 allanpokemon () {

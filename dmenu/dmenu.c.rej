@@ -1,0 +1,20 @@
+diff a/dmenu.c b/dmenu.c	(rejected hunks)
+@@ -690,7 +734,8 @@ static void
+ usage(void)
+ {
+ 	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+-	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
++	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n"
++	      "             [ -o opacity]\n", stderr);
+ 	exit(1);
+ }
+ 
+@@ -719,6 +764,8 @@ main(int argc, char *argv[])
+ 			lines = atoi(argv[++i]);
+ 		else if (!strcmp(argv[i], "-m"))
+ 			mon = atoi(argv[++i]);
++		else if (!strcmp(argv[i], "-o"))  /* opacity */
++			opacity = atof(argv[++i]);
+ 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
+ 			prompt = argv[++i];
+ 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */

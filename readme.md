@@ -17,6 +17,7 @@ git clone <this dotfile> $DOTFILES_DIR
 - nvim configuration
 - ranger configuration (from some guy, I'll make sure to mention when I remember)
 - zsh configuration & custom zsh scripts
+- dmenu with patches
 - various bashscripts
 - other configuration files for:
 	-	picom/compton

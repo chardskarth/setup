@@ -249,7 +249,7 @@ theme.weather = lain.widget.weather({
     end
 })
 
---[[ / fs
+-- fs
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 theme.fs = lain.widget.fs({
     notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Noto Sans Mono Medium 10" },
@@ -258,7 +258,6 @@ theme.fs = lain.widget.fs({
         widget:set_markup(markup.font(theme.font, fsp))
     end
 })
---]]
 
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
@@ -432,6 +431,9 @@ function theme.at_screen_connect(s)
             arrl_tail,
             arrl_dl,
             container_alpha(nil, pomodoro.widget),--wibox.widget { pomodoro.widget, pomodoro.icon_widget, layout = wibox.layout.fixed.horizontal } ),
+            arrl_tail,
+            arrl_dl,
+            container_alpha(fsicon, theme.fs),
             arrl_tail,
             arrl_dl,
             container_alpha(memicon, mem.widget),

@@ -38,7 +38,7 @@ antigen apply
 alias lg='lazygit'
 alias gdcached='git diff --cached'
 
-path=($HOME'/.local/bin' $HOME'/.local/bin/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $HOME/go/bin $HOME/.arkade/bin /usr/local/go/bin $path)
+path=($HOME'/.local/bin' $HOME'/.local/bin/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $HOME/go/bin $HOME/.arkade/bin /usr/local/go/bin $DOTFILES_DIR/bashscripts $path)
 export path
 
 auto-ls-custom-fn() {

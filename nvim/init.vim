@@ -27,7 +27,7 @@ source $HOME/.config/nvim/config/general_and_my_fns.vim
 source $HOME/.config/nvim/config/colorscheme_vimrainbowlevels.vim
 source $HOME/.config/nvim/config/airline.vim
 source $HOME/.config/nvim/config/coc.vim
-source $HOME/.config/nvim/config/explorer.vim
+source $HOME/.config/nvim/config/start-up.vim
 source $HOME/.config/nvim/config/fzf.vim
 source $HOME/.config/nvim/config/vem-tabline.vim
 source $HOME/.config/nvim/config/vimwiki.vim

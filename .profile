@@ -28,6 +28,7 @@ fi
 
 
 export DOTFILES_DIR=$HOME/sources/chardskarth/setup
+export SOURCES_DIR=$HOME/sources/chardskarth
 
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"

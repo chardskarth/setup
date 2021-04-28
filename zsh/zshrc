@@ -13,9 +13,13 @@ source $HOME/.profile
 # export ZSH=$HOME"/.oh-my-zsh"
 # source $ZSH/oh-my-zsh.sh
 
-MY_ZSH_SCRIPTS=$DOTFILES_DIR/zsh/**/*.zsh
-for f (~/sources/chardskarth/setup/zsh/**/*.zsh(N.))  . $f
+MY_ZSH_SCRIPTS=$DOTFILES_DIR/zsh/
+for f in $(find $MY_ZSH_SCRIPTS -name "*.zsh" -type f); do
+	. $f
+done
 hash -d dotfiles=$DOTFILES_DIR
+
+[[ -d $SOURCES_DIR ]] && hash -d sources=$SOURCES_DIR
 
 # use antigen ohmyzsh plugin manager: github.com/zsh-users/antigen
 source ~/antigen.zsh

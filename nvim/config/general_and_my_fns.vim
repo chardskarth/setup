@@ -70,4 +70,8 @@ fun! MyJumpMove()
 endf
 
 
-
+" dont store {,},j,k motions in jumplist
+nnoremap } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
+nnoremap { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
+nnoremap j :<C-u>execute "keepjumps norm! " . v:count1 . "j"<CR>
+nnoremap k :<C-u>execute "keepjumps norm! " . v:count1 . "k"<CR>

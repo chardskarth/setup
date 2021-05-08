@@ -12,9 +12,9 @@
 "      \__\/                                ~~~~                   \__\/         \__\/         \__\/     
 " 
 
-" if‧empty(glob("~/.vim/autoload/plug.vim"))↵
-" ‧‧‧‧execute‧'!curl‧-fLo‧~/.vim/autoload/plug.vim‧https://raw.github.com/junegunn/vim-plug/master/plug.vim'↵
-" endif↵
+" if empty(glob("~/.vim/autoload/plug.vim"))
+"   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+" endif
 
 if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature  

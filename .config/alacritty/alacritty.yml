@@ -1,0 +1,8 @@
+font:
+  normal:
+    family: JetBrainsMono Nerd Font Bandit
+  bold:
+    family: Fira Mono for Powerline
+  size: 8
+
+background_opacity: 0.7

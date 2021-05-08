@@ -40,7 +40,7 @@ return {
      'flameshot',
      'synology-drive -minimized',
      'steam -silent',
-    'feh --randomize --bg-fill ~/.wallpapers/*',
+    'feh --randomize --bg-fill ' .. CONFS_PATH .. '/variety/Fetched/*',
     'variety --current', -- added --current to prevent window display
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script

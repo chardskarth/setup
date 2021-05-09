@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import sys
+import datetime
+
+template = """# {date}
+
+## Daily checklist
+
+* [ ] Take a vitamin C
+* [ ] Eat your daily carrot!
+
+## Wins
+
+## Losses
+
+## Daily
+
+"""
+
+date = datetime.date.today()
+print(template.format(date=date))

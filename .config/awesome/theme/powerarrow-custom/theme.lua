@@ -213,8 +213,8 @@ local cpu = lain.widget.cpu({
     end
 })
 
---[[ Coretemp (lm_sensors, per core)
-local tempwidget = awful.widget.watch({awful.util.shell, '-c', 'sensors | grep Core'}, 30,
+-- Coretemp (lm_sensors, per core)
+local tempwidget = awful.widget.watch({awful.util.shell, '-c', 'sensors | grep Core'}, 5,
 function(widget, stdout)
     local temps = ""
     for line in stdout:gmatch("[^\r\n]+") do
@@ -222,7 +222,7 @@ function(widget, stdout)
     end
     widget:set_markup(markup.font(theme.font, " " .. temps))
 end)
---]]
+--
 -- Coretemp (lain, average)
 local temp = lain.widget.temp({
     settings = function()
@@ -425,30 +425,43 @@ function theme.at_screen_connect(s)
             -- using separators
             --arrow(theme.bg_normal, "#343434"),
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), "#343434"),
-            arrl_tail,
-            arrl_dl,
-            container_alpha(mpdicon, theme.mpd.widget),
+
+            -- arrl_tail,
+            -- arrl_dl,
+            -- container_alpha(mpdicon, theme.mpd.widget),
+
             arrl_tail,
             arrl_dl,
             container_alpha(nil, pomodoro.widget),--wibox.widget { pomodoro.widget, pomodoro.icon_widget, layout = wibox.layout.fixed.horizontal } ),
+
             arrl_tail,
             arrl_dl,
             container_alpha(fsicon, theme.fs),
+	    
             arrl_tail,
             arrl_dl,
             container_alpha(memicon, mem.widget),
+
             arrl_tail,
             arrl_dl,
             container_alpha(cpuicon, cpu.widget),
+	    
             arrl_tail,
             arrl_dl,
-            container_alpha(tempicon, temp.widget),
+            container_alpha(baticon, bat.widget),
+
+            arrl_tail,
+            arrl_dl,
+            container_alpha(tempicon, tempwidget),-- container_alpha(tempicon, temp.widget),
+
             arrl_tail,
             arrl_dl,
             container_alpha(nil, net.widget),
+
             arrl_tail,
             arrl_dl,
             container_alpha(nil, clock),
+
             arrl_tail,
             arrl_dl,
             -- wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#A77AC4"),

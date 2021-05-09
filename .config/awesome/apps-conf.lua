@@ -11,7 +11,7 @@ local dmenu_command = 'dmenu_run -h 20 -nb "#192933" -nf "#d3d7cf" -fn "JetBrain
 return {
   -- List of apps to start by default on some actions
   default = {
-    terminal = 'terminator',
+    terminal = 'alacritty',
 --    terminal = 'lxterminal',
     rofi = rofi_command,
     lock = 'i3lock-fancy',

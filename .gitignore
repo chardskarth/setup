@@ -1,6 +1,21 @@
 *confidential*
 barrier.conf
-nvim/autoload/
+.config/nvim/autoload/plug-plugins.vim/**/*
+.config/variety/Downloaded/**/*
+node_modules
+
+.config/variety
+.config/flameshot
+.config/lazygit
+.config/htop
+.config/nautilius
+.config/nautilus/search-metadata
+.config/QtProject.conf
+.config/autostart/variety.desktop
+.config/dconf/user
+
+dmenu/dmenu
+dmenu/stest
 
 .svn
 .DS_Store

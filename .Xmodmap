@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# switch alt and window key
+# remove modifier must happen before changing of keycode,
+# otherwise, they'll be swapped
+xmodmap -e "remove mod1 = Alt_L"
+xmodmap -e "remove mod4 = Super_L"
+xmodmap -e "keycode 64 = Super_L NoSymbol Super_L"
+xmodmap -e "keycode 133 = Alt_L Meta_L Alt_L Meta_L"
+xmodmap -e "add mod4 = Super_L"
+xmodmap -e "add mod1 = Alt_L"
+
+# Switch capslock and escape key
+xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+xmodmap -e "clear lock"
+xmodmap -e "add lock = Caps_Lock"
+

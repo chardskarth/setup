@@ -27,3 +27,7 @@
 snippet diarytoday "Create today's diary" 
 [[diary:`!v strftime("%Y-%m-%d")`]]
 endsnippet
+
+snippet timelog
+[`a=$(date +"%N") && echo $(date +'%H:%M:%S.')${a::-6}`] $1
+endsnippet

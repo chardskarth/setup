@@ -4,16 +4,55 @@ import datetime
 
 template = """# {date}
 
-## Daily checklist
+## Morning checklist
 
-* [ ] Take a vitamin C
-* [ ] Eat your daily carrot!
+* [ ] First thing stretch
+* [ ] Early water theraphy
+* [ ] Lumosity brain game
+* [ ] Morning heliocare
+* [ ] Exercise
+* [ ] Shower
+* [ ] Coffee
+* [ ] Breakfast (Smoothie?)
+* [ ] Time in
 
-## Wins
+## Lunch habits
+
+* [ ] Eat fruits first
+* [ ] Dont overeat
+* [ ] Post lunch isotret
+* [ ] Post lunch collagen
+
+## Evening checklist
+
+* [ ] WC Journal
+* [ ] Time out
+* [ ] Night collagen
+* [ ] Goals review
+
+## Dinner habits
+
+* [ ] Eat fruits first
+* [ ] Dont overeat
+* [ ] Post dinner brain meds
+
+## Targeted wins
+
+* [ ]
+* [ ]
+* [ ]
 
 ## Losses
 
-## Daily
+## Logs
+
+## Notes
+
+## Todo tomorrow
+
+* [ ]
+* [ ]
+* [ ]
 
 """
 

@@ -10,7 +10,7 @@ encrypt: false
 highlight: true
 indent_character: '|'
 journals:
-  default: /home/pi/.jrnl/journal.txt
+  default: ~/.jrnl/journal.txt
 linewrap: 79
 tagsymbols: '@'
 template: false

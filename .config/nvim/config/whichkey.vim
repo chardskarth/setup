@@ -84,7 +84,8 @@ let which_key_map.k = { 'name': '+vimwiki'
 			\, '>': [':VimwikiDiaryNextDay', 'Go next day']
 			\, '<': [':VimwikiDiaryPrevDay', 'Go prev day']
 			\, '.': [':VimwikiMakeDiaryNote', 'Wiki diary']
-			\, '/': [':VimwikiFiles', 'Search vimwiki files']
+			\, '/': [':VimwikiLines', 'Search vimwiki lines']
+			\, 'p': [':VimwikiFiles', 'Search vimwiki files']
 			\, 'm': { 'name': '+make diary'
 			\,				't': [':VimwikiMakeTomorrowDiaryNote', 'Tomorrow']}
 			\, }

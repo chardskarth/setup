@@ -7,7 +7,7 @@ vbashrc() {
 
 vcfg() {
 	before=$(cat $scriptPathCJ | md5sum)
-	nvim ~/.oh-my-zsh/custom/easy-configs.zsh
+	nvim $scriptPathCJ
 	after=$(cat $scriptPathCJ | md5sum)
 	if [ "$before" != "$after" ]
 	then
@@ -35,6 +35,11 @@ vzshrc() {
 
 vcfgtm() {
 	nvim ~/.tmux.conf
+}
+
+vk.() {
+	datetoday=$(date +"%Y-%m-%d")
+	nvim "$HOME/vimwiki/diary/$datetoday.wiki"
 }
 
 cdcfg() {

@@ -17,6 +17,7 @@ node_modules
 .config/pulse
 .config/systemd
 .config/pavucontrol*
+.config/habitctl*
 
 dmenu/dmenu
 dmenu/stest

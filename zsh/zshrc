@@ -44,7 +44,10 @@ antigen apply
 alias lg='lazygit'
 alias gdcached='git diff --cached'
 
-path=($HOME'/.local/bin' $HOME'/.local/bin/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $HOME/go/bin $HOME/.arkade/bin /usr/local/go/bin $DOTFILES_DIR/bashscripts $path)
+export GOPATH=$HOME/go/gopath
+export GOROOT=$HOME/go
+
+path=($HOME'/.local/bin' $HOME'/.local/bin/bin' $HOME'/.local/pipx/venvs/pokemon-terminal' $GOPATH/bin $HOME/.arkade/bin $DOTFILES_DIR/bashscripts $path)
 export path
 
 auto-ls-custom-fn() {
@@ -218,3 +221,4 @@ export SDKMAN_DIR="/home/me/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.cargo/env ] && source ~/.cargo/env

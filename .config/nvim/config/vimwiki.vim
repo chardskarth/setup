@@ -1,4 +1,5 @@
 let g:vimwiki_table_mappings=0
+let g:vimwiki_url_maxsave=200
 
 au BufNewFile ~/vimwiki/diary/*.wiki :silent 0r !vimwiki-diary-template '%'
 
@@ -18,3 +19,9 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang VimwikiLines call RipgrepFzf(<q-args>, <bang>0)
+
+
+let wcWikiList = { 'path': '~/vimwiki/whitecloak/', 'name': 'wc', 'index': '../index' }
+let g:vimwiki_list = [{}, wcWikiList]
+
+

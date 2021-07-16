@@ -18,8 +18,8 @@ nnoremap <leader>p :action GotoFile<CR>
 nnoremap <leader><leader>c :action GotoClass<CR>
 nnoremap <leader>[ :action GotoImplementation<CR>
 nnoremap <leader>> :action MoveEditorToOppositeTabGroup<CR>
-nnoremap <C-y> :action MoveLineDown<CR>
-nnoremap <C-u> :action MoveLineUp<CR>
+xnoremap J :action MoveLineDown<CR>
+xnoremap K :action MoveLineUp<CR>
 
 nnoremap < :action PreviousTab<CR>
 nnoremap > :action NextTab<CR>

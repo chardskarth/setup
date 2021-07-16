@@ -75,5 +75,8 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'tpope/vim-eunuch'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-speeddating'
+Plug 'numEricL/nerdtree-live-preview'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()

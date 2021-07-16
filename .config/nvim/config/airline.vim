@@ -18,10 +18,14 @@ au User AirlineAfterInit call UpdateAirline()
 " remove separators for empty sections
 "let g:airline_skip_empty_sections = 1
 "https://github.com/vim-airline/vim-airline/issues/1309
+
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+
+let g:airline#extensions#wordcount#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#format = '%d w'
 let g:airline#extensions#wordcount#formatter#default#fmt = '%d w'
-let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#wordcount#filetypes = ''
 let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
 

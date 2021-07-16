@@ -48,14 +48,6 @@ set switchbuf+=useopen
 
 set noshowmode
 
-set conceallevel=1
-
-command! Reload execute "source ~/.config/nvim/init.vim"
-command! Vimrc execute "e ~/.config/nvim/init.vim"
-command! Vimconf execute "e ~/.config/nvim/config/general_and_my_fns.vim"
-command! Vimplugins execute "e ~/.config/nvim/plugins.vim"
-command! Vimkeys execute "e ~/.config/nvim/config/whichkey.vim"
-
 function! MyGetDate() 
   put =strftime('%Y%m%d')
 endfunction
@@ -69,9 +61,12 @@ fun! MyJumpMove()
   call feedkeys("\<esc>/<<\\*>>\<cr>c5l")
 endf
 
-
 " dont store {,},j,k motions in jumplist
 nnoremap } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
 nnoremap { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 nnoremap j :<C-u>execute "keepjumps norm! " . v:count1 . "j"<CR>
 nnoremap k :<C-u>execute "keepjumps norm! " . v:count1 . "k"<CR>
+
+function! ToggleConcealCursor()
+
+endfunction

@@ -22,3 +22,19 @@ vk.(){
 	nvim -c "normal <leader>vk."
 }
 
+vhabits (){
+	nvim ~/vimwiki/.habits
+}
+
+vhabitlog (){
+	nvim ~/vimwiki/.habit-log
+}
+
+chabits (){
+	cat ~/vimwiki/.habits
+}
+
+chabitlog (){
+	cat ~/vimwiki/.habit-log
+}
+

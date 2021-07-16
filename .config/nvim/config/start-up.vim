@@ -4,7 +4,7 @@ function! StartUp()
     end
 endfunction
 
-autocmd VimEnter * if !argc() | exec ":GtdReview" | NERDTree | wincmd w | endif
+autocmd VimEnter * if !argc() | exec ":VimwikiMakeDiaryNote" | exec ":NERDTree ~/vimwiki" | endif
 
 "call timer_start(400, { tid ->  execute('normal NERDTree') })
 

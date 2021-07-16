@@ -22,7 +22,7 @@ ccfg() {
 }
 
 vvimrc() {
-	nvim ~/.vimrc
+	nvim ~/.config/nvim/init.vim
 }
 
 vnvim() {
@@ -40,6 +40,10 @@ vcfgtm() {
 vk.() {
 	datetoday=$(date +"%Y-%m-%d")
 	nvim "$HOME/vimwiki/diary/$datetoday.wiki"
+}
+
+v.() {
+	nvim "."
 }
 
 cdcfg() {

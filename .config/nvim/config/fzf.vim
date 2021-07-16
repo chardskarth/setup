@@ -8,6 +8,10 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+let g:fzf_colors = {'border': ['fg', 'ErrorMsg']}
+
+let $FZF_DEFAULT_OPTS='--reverse --ansi --margin=5,5 --no-info --preview-window noborder'
+
 function! s:list_buffers()
   redir => list
   silent ls

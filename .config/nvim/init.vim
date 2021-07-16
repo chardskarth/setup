@@ -33,10 +33,13 @@ source $HOME/.config/nvim/config/vem-tabline.vim
 source $HOME/.config/nvim/config/vimwiki.vim
 source $HOME/.config/nvim/config/localvimrc.vim
 source $HOME/.config/nvim/config/whichkey.vim
+source $HOME/.config/nvim/config/goyo.vim
 source $HOME/.config/nvim/config/vim-startify.vim
 source $HOME/.config/nvim/config/vim-pbcopy.vim
 source $HOME/.config/nvim/config/vim-gtd.vim
 source $HOME/.config/nvim/config/vim-libmodal.vim
 source $HOME/.config/nvim/config/nerdtree.vim
 source $HOME/.config/nvim/config/language-configs.vim
+source $HOME/.config/nvim/config/quickedits.vim
+source $HOME/.config/nvim/config/tagbar.vim
 

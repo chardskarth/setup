@@ -61,3 +61,6 @@ endfunction
 
 " ----------------------------------------------------------------
 
+function! MyNERDTreeTogglePreview()
+	let g:NERDTreePreview_TemporaryToggled = g:NERDTreePreview_TemporaryToggled == 0 ? 1 : 0
+endfunction

@@ -12,7 +12,6 @@
 "	call NERDTreeAddKeyMap({
 "	    \ 'key': '<CR>',
 "	    \ 'scope': 'FileNode',
-"	    \ 'callback': 'MyCustomOpenFile',
 "	    \ 'quickhelpText': 'open a file with the cursor in the NERDTree',
 "	    \ 'override': 1,
 "	    \ })
@@ -29,12 +28,16 @@ noremap! <C-K> <C-W><C-K>
 noremap! <C-L> <C-W><C-L>
 noremap! <C-H> <C-W><C-H>
 
+" for quickly moving lines up or down during visual mode
+xnoremap K :move '<-2<CR>gv=gv
+xnoremap J :move '>+1<CR>gv=gv
+
 let mapleader = " "
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
-set timeoutlen=300
+set timeoutlen=500
 
 nnoremap > :tabnext<CR>
 nnoremap < :tabprev<CR>
@@ -57,12 +60,17 @@ let g:which_key_map.w = { 'name': '+windows'
 			\, 'n':[':TilerNew', 'Tiler new']
 			\, 'r':[':TilerReorder', 'Tiler reorder']
 			\, 'f':[':TilerFocus', 'Tiler focus']
-			\, 't': ['<Plug>GoldenViewSwitchToggle', 'Golden view toggle']
 			\, 'x': [':clo', 'Close window']
 			\, 's': ['<Plug>GoldenViewSplit', 'Golden view split']}
 
-let g:which_key_map.t = { 'name': '+tagbar'
-			\, 't': [':TagbarOpen fj', 'Tagbar toggle']}
+let g:which_key_map.t = { 'name': '+toggle'
+			\, 'g': ['<Plug>GoldenViewSwitchToggle', 'Golden view toggle']
+			\, 't': [':TagbarToggle', 'Tagbar toggle']
+			\, 'y': [':Goyo', 'Goyo view toggle']
+			\, '1': [':set number!', 'Toggle line number']
+			\, '2': [':set rnu!', 'Toggle relative line number']
+			\, '3': [':call MyToggleLineNumbers()', 'Toggle all line numbers']
+			\, 'e': [':call MyNERDTreeTogglePreview()', 'NERD Tree preview']}
 
 let g:which_key_map.f = { 'name': '+fzf'
 			\, 'p': [':FZF', 'FZF']
@@ -75,22 +83,42 @@ let g:which_key_map.l = { 'name': '+languageServer'
 			\, 'f': ['<Plug>(coc-codeaction-selected)', 'Code action selected']
 			\, 'c': ['<Plug>(coc-codeaction)', 'Code action']
 			\, 'r': ['<Plug>(coc-references)', 'References']}
-"			\ 'c': { 'name': '+vim-coc' },
-"			\ }
 
+let g:which_key_map.z = { 'name': '+myvimconfigs'
+			\, '1': [':Vimrc', 'Vimrc']
+			\, '2': [':Vimplugins', 'Vimplugins']
+			\, '3': [':Vimkeys', 'Vimkeys']
+			\, '4': [':VimwikiConf', 'VimwikiConf']
+			\, '5': [':Vimconf', 'Vimconf']
+			\, 'f': [':VimFzfConf', 'Vim fzf conf']
+			\, 'm': [':Finances', 'open finances']
+			\, 'k': { 'name': 'Edit wiki'
+			\,				'h': [':VimwikiHabits', 'Habits']
+			\,				'l': [':VimwikiHabitLogs', 'Habit logs']}
+			\, 'e': [':VimQuickedits', 'VimQuickedits']}
+
+vnoremap <leader>klp :VimwikiProjectMove<CR>
+vnoremap <leader>kl> :VimwikiDiaryTomorrowMove<CR>
+vnoremap <leader>klk :VimwikiDiaryMove<CR>
 let which_key_map.k = { 'name': '+vimwiki'
-			\, 'w': [':VimwikiIndex', 'Wiki index']
+			\, 'w': [':call TypeVimWiki()', 'Type vimwiki']
 			\, 'k': [':VimwikiIndex', 'Wiki index']
 			\, '>': [':VimwikiDiaryNextDay', 'Go next day']
 			\, '<': [':VimwikiDiaryPrevDay', 'Go prev day']
 			\, '.': [':VimwikiMakeDiaryNote', 'Wiki diary']
-			\, '/': [':VimwikiLines', 'Search vimwiki lines']
+			\, '/': { 'name': '+search vimwiki pages'
+			\,				'p': [':VimwikiSearchProject', 'Search project']
+			\,				'd': [':VimwikiSearchDiary', 'Search diary']
+			\,				'c': [':VimwikiSearchCheckins', 'Search wc checkins']
+			\,				'l': [':VimwikiLines', 'Search vimwiki lines']
+			\,				'w': [':VimwikiSearchWCProjects', 'Search wc projects']
+			\,				'y': [':VimwikiSearchWeekly', 'Search weeklies']}
 			\, 'p': [':VimwikiFiles', 'Search vimwiki files']
+			\, 'r': [':SundayReview', 'Do a sunday review']
 			\, 'm': { 'name': '+make diary'
 			\,				't': [':VimwikiMakeTomorrowDiaryNote', 'Tomorrow']}
 			\, }
-"			\ 'c': { 'name': '+vim-coc' },
-"			\ }
+
 " {{ nerd tree settings
 
 let g:which_key_map.e = { 'name': '+nerdtree'
@@ -122,6 +150,11 @@ function! MapBoth(mapmode, keys, rhs)
     execute 'i'.a:mapmode a:keys a:rhs
 endfunction
 
+function! MyToggleLineNumbers() 
+	set rnu!
+	set number!
+endfunction
+
 call MapBoth('noremap', '<Leader>;w', '<Esc>:noh<CR>:w<CR>')
 call MapBoth('noremap', '<Leader>;ef', '<Esc>:NERDTreeFind<CR>')
 
@@ -147,6 +180,8 @@ vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 noremap ‘ :tabnext<CR>
 noremap “ :tabprev<CR>
+nnoremap <M-lt> :-tabmove<CR>
+nnoremap <M->> :+tabmove<CR>
 
 " EasyAlign: Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)

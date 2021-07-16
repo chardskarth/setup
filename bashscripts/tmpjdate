@@ -1,0 +1,17 @@
+__jdate() {
+	ehh=$(eval "date --date='$@' +%Y-%m-%d")
+	echo $ehh
+}
+
+
+#jdate() {
+	if [ -z $1 ]
+	then
+		echo -n "Specify a date: "
+		read specifieddate
+		ehh=$(eval "__jdate $specifieddate")
+	else
+		ehh=$(eval "__jdate $@")
+	fi
+	echo $ehh
+#}

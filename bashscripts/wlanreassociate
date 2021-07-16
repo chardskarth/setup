@@ -1,0 +1,10 @@
+#!/bin/bash
+sleeptime=120
+pinghost=google.com
+
+/bin/ping -c 2 $pinghost > /dev/null 2>&1
+if [ $? != 0 ]
+then
+	/usr/bin/logger "running wlan reassociate"
+	/sbin/wpa_cli -i wlan0 reassociate
+fi

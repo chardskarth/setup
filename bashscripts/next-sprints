@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#sprints=$(gcalcli search "[Check-in]" today "July")
+awesome-client '
+local naughty = require("naughty")
+naughty.notify({
+title="Next Sprints",
+text=string.format("<i>%s</i><br />asdfasdf", "abcd")
+})
+'

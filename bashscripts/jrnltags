@@ -1,0 +1,3 @@
+#!/bin/sh
+
+FORCE_COLOR=3 node --experimental-modules --no-warnings ~/sources/chardskarth-github/jrnltags/index.js

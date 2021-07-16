@@ -18,6 +18,12 @@ node_modules
 .config/systemd
 .config/pavucontrol*
 .config/habitctl*
+.config/REAPER
+.config/chromium
+.config/qutebrowser*
+.config/discord
+.config/configstore
+.config/vlc
 
 dmenu/dmenu
 dmenu/stest

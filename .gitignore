@@ -24,6 +24,14 @@ node_modules
 .config/discord
 .config/configstore
 .config/vlc
+.config/google-chrome*
+.config/dijo*
+.config/autostart/xdman.desktop
+.config/menus*
+.config/coc/snippets-mru*
+bashscripts/idea.sh
+bashscripts/_vimjtags
+bashscripts/cash-total.kts
 
 dmenu/dmenu
 dmenu/stest

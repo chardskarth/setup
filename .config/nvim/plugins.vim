@@ -1,6 +1,7 @@
 let g:PLUG_PATH = '$HOME/.config/nvim/autoload/plug.vim'
 let g:PLUGINS_PATH = '$HOME/.config/nvim/autoload/plug-plugins.vim'
 
+
 if empty(glob(g:PLUG_PATH))
     execute '!curl -fLo '.g:PLUG_PATH.' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync
@@ -11,8 +12,8 @@ endif
 call plug#begin(g:PLUGINS_PATH)
 
 " {{ Plugin: aesthetics
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 " Plug 'rainglow/vim' 			> commented since I'm now using
 " Plug 'NLKNguyen/papercolor-theme'	> dylanaraps' pywal
 " Plug 'dylanaraps/wal.vim'
@@ -63,7 +64,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'mhinz/vim-startify'
 Plug 'KurtPreston/vimcolors'
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 Plug 'chardskarth/vimwiki'
 Plug 'fifi2/gtd.vim'
 Plug 'moll/vim-bbye'

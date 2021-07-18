@@ -31,3 +31,7 @@ endsnippet
 snippet timelog
 [`a=$(date +"%N") && echo $(date +'%H:%M:%S.')${a::-6}`] $1
 endsnippet
+
+snippet date "Create today's diary" 
+`strftime("%Y-%m-%d")`
+endsnippet

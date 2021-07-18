@@ -1,8 +1,3 @@
-set termguicolors
-
-" set background=dark								" keeping here for reference but I think this setting is pointless when using a colorscheme
-colorscheme moonfly "sandydune "medic_chalk true hyper medic_chalk sonokai pulumi spacegray
-
 " {{ rainbow settings https://jonajacek.github.io/colors
 hi! rainbowlevel0 ctermfg=099|"ctermfg=068 guifg=#6699cc
 hi! rainbowlevel1 ctermfg=039|"ctermfg=203 guifg=#ec5f67
@@ -15,10 +10,15 @@ hi! RainbowLevel7 ctermfg=201|"ctermfg=137 guifg=#ab7967
 " }}
 let g:rainbow_active = 1
 
-hi! Normal ctermbg=NONE guibg=NONE 
-hi! LineNr ctermbg=NONE guibg=NONE 
+" hi! Normal ctermbg=NONE guibg=NONE 
+" hi! LineNr ctermbg=NONE guibg=NONE 
 hi VertSplit guibg=NONE guifg=grey50 gui=none
 hi SignColumn	guibg=NONE gui=none
 hi NonText guibg=NONE
 
 highlight Conceal guifg=#80a0ff
+" nnoremap <C-t> : call Toggle_transparent()<CR>
+
+let g:doom_one_terminal_colors = v:true
+set termguicolors
+colorscheme doom-one

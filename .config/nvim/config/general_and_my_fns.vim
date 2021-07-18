@@ -1,10 +1,9 @@
 " {{ aesthetic. Font, space rendering, tabstops
 " indentation settings https://vim.fandom.com/wiki/Indenting_source_code?section=5
 
-" set background=dark								" keeping here for reference but I think this setting is pointless when using a colorscheme
-colorscheme hyper "medic_chalk true hyper medic_chalk sonokai pulumi spacegray
-set nu rnu                             " turn on relative line numbers
-set linespace=3                     " insert 3pixels per characters
+set background=dark								" keeping here for reference but I think this setting is pointless when using a colorscheme
+
+set timeoutlen=500
 set guifont=Roboto\ Mono            " Fira\ Code:h12
 set list                            " turns on showing of unprintable characters. ie render whitespaces
 set listchars=eol:↵,tab:›\ ,space:‧ " controlling what characters would render which spaces(eol,tab and space)
@@ -48,6 +47,11 @@ set switchbuf+=useopen
 
 set noshowmode
 
+set rnu
+set number
+
+set completeopt=menuone,noselect
+
 function! MyGetDate() 
   put =strftime('%Y%m%d')
 endfunction
@@ -61,12 +65,3 @@ fun! MyJumpMove()
   call feedkeys("\<esc>/<<\\*>>\<cr>c5l")
 endf
 
-" dont store {,},j,k motions in jumplist
-nnoremap } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
-nnoremap { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
-nnoremap j :<C-u>execute "keepjumps norm! " . v:count1 . "j"<CR>
-nnoremap k :<C-u>execute "keepjumps norm! " . v:count1 . "k"<CR>
-
-function! ToggleConcealCursor()
-
-endfunction

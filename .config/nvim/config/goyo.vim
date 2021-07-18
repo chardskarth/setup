@@ -9,7 +9,7 @@ function! s:goyo_leave()
 	set showmode
 	set showcmd
 	set scrolloff=8
-	hi! Normal ctermbg=NONE guibg=NONE
+	" hi! Normal ctermbg=NONE guibg=NONE
 	Limelight!
 endfunction
 

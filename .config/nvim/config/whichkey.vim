@@ -32,7 +32,6 @@ noremap! <C-H> <C-W><C-H>
 xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
 
-let mapleader = " "
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
@@ -146,8 +145,8 @@ nnoremap <leader>;j :call MyJumpMove()<CR>
 inoremap <leader>;j <Esc>:call MyJumpMove()<CR>
 
 function! MapBoth(mapmode, keys, rhs)
-    execute 'n'.a:mapmode a:keys a:rhs
-    execute 'i'.a:mapmode a:keys a:rhs
+	execute 'n'.a:mapmode a:keys a:rhs
+	execute 'i'.a:mapmode a:keys a:rhs
 endfunction
 
 function! MyToggleLineNumbers() 
